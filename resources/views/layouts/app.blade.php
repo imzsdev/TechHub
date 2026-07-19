@@ -11,7 +11,7 @@
 
 <body>
 
-    <h2>🛒 TechHub</h2>
+    @include('partials.header')
     
     @include('partials.navbar')
 

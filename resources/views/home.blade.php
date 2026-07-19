@@ -2,8 +2,12 @@
 
 @section('content')
 
-<h1>Welcome to TechHub 🚀</h1>
+<div class="alert alert-success mt-4">
+    🎉 Bootstrap Successfully Connected!
+</div>
 
-<p>This is Home Page.</p>
+<button class="btn btn-danger">
+    Click Me
+</button>
 
 @endsection
