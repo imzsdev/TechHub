@@ -1,5 +1,13 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+@import './variables.css';
+
+@import './navbar.css';
+@import './hero.css';
+@import './buttons.css';
+@import './cards.css';
+@import './responsive.css';
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
