@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechHub</title>
 </head>
+
 <body>
 
-    <h1>Welcome to TechHub 🚀</h1>
+    <h2>🛒 TechHub</h2>
+    
+    @include('partials.navbar')
 
-    <p>My first Laravel Blade Page.</p>
-    <p>Developed By MZSDevphp artisan make:controller HomeController.</p>
+    <hr>
+
+    @yield('content')
+
+    <hr>
+
+    <p>© 2026 TechHub. All Rights Reserved.</p>
 
 </body>
+
 </html>
