@@ -2,12 +2,6 @@
 
 @section('content')
 
-<div class="alert alert-success mt-4">
-    🎉 Bootstrap Successfully Connected!
-</div>
-
-<button class="btn btn-danger">
-    Click Me
-</button>
+@include('components.hero')
 
 @endsection
