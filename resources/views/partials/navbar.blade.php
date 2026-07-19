@@ -1,8 +1,8 @@
 <nav>
-    <a href="/">Home</a> |
-    <a href="/about">About</a> |
-    <a href="/products">Products</a> |
-    <a href="/contact">Contact</a>
+    <a href="{{ route('home') }}">Home</a> |
+    <a href="{{ route('about') }}">About</a> |
+    <a href="{{ route('products') }}">Products</a> |
+    <a href="{{ route('contact') }}">Contact</a>
 </nav>
 
 <hr>
