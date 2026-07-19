@@ -1,27 +1,39 @@
-<section class="bg-dark text-white py-5">
+<section class="hero">
+
     <div class="container">
 
         <div class="row align-items-center">
 
             <div class="col-lg-6">
 
-                <h1 class="display-4 fw-bold">
-                    Premium Gadgets For Everyone
+                <span class="hero-tag">
+                    Premium Electronics Marketplace
+                </span>
+
+                <h1 class="hero-title">
+                    Innovation Starts Here
                 </h1>
 
-                <p class="lead mt-3">
-                    Discover the latest electronics, gaming accessories,
-                    PC components and smart gadgets at the best prices.
+                <p class="hero-description">
+                    Discover premium gadgets, gaming accessories,
+                    PC components and smart devices designed
+                    for your everyday digital life.
                 </p>
 
-                <div class="mt-4">
+                <div class="hero-buttons">
 
-                    <a href="{{ route('products') }}" class="btn btn-danger btn-lg">
+                    <a href="{{ route('products') }}"
+                       class="btn btn-techhub">
+
                         Shop Now
+
                     </a>
 
-                    <a href="{{ route('about') }}" class="btn btn-outline-light btn-lg ms-2">
+                    <a href="{{ route('about') }}"
+                       class="btn btn-outline-techhub">
+
                         Learn More
+
                     </a>
 
                 </div>
@@ -30,14 +42,19 @@
 
             <div class="col-lg-6 text-center">
 
-                <img
-                    src="https://placehold.co/600x400"
-                    class="img-fluid rounded"
-                    alt="Hero Image">
+                <div class="hero-image">
+
+                    <img
+                        src="https://placehold.co/550x450"
+                        class="img-fluid"
+                        alt="TechHub Hero">
+
+                </div>
 
             </div>
 
         </div>
 
     </div>
+
 </section>
