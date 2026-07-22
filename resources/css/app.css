@@ -687,3 +687,160 @@ nav a:hover {
     color:#bdbdbd;
     margin-bottom:10px;
 }
+
+/* ===================================
+   Product Listing Page
+=================================== */
+
+.products-page{
+    background:#0b0b0b;
+    min-height:100vh;
+}
+
+.product-card{
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:20px;
+
+    transition:.35s;
+
+    height:100%;
+}
+
+.product-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 0 30px rgba(255,45,45,.18);
+
+}
+
+.product-card img{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    border-radius:16px;
+
+}
+
+.product-card h5{
+
+    margin-top:15px;
+
+    color:#fff;
+
+}
+
+.product-card p{
+
+    color:#b8b8b8;
+
+}
+
+.product-card h4{
+
+    color:#ff3b3b;
+
+}
+
+
+/* ===================================
+   Product Filters
+=================================== */
+
+.filter-card{
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:25px;
+
+    position:sticky;
+
+    top:100px;
+
+}
+
+.filter-title{
+
+    color:#fff;
+
+    margin-bottom:15px;
+
+    font-weight:600;
+
+}
+
+.filter-card hr{
+
+    border-color:rgba(255,255,255,.08);
+
+    margin:25px 0;
+
+}
+
+.form-check{
+
+    margin-bottom:10px;
+
+}
+
+.form-check-label{
+
+    color:#d7d7d7;
+
+}
+
+.form-check-input{
+
+    background:#222;
+
+    border-color:#555;
+
+}
+
+.form-check-input:checked{
+
+    background:#ff2d2d;
+
+    border-color:#ff2d2d;
+
+}
+
+.form-select{
+
+    border-radius:12px;
+
+}
+
+.form-range{
+
+    margin-top:10px;
+
+}
+
+.form-range::-webkit-slider-thumb{
+
+    background:#ff2d2d;
+
+}
+
+.form-range::-moz-range-thumb{
+
+    background:#ff2d2d;
+
+}
