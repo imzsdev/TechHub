@@ -42,3 +42,364 @@ nav a:hover {
     margin: auto;
     padding: 20px;
 }
+
+
+/* ===============================
+   HERO SECTION
+================================= */
+
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at top right,
+            rgba(255, 0, 0, 0.12),
+            transparent 35%),
+        #0b0b0b;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.hero-title span {
+    color: #ff2d2d;
+}
+
+.hero-subtitle {
+    color: #bdbdbd;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-techhub {
+    background: #ff2d2d;
+    color: white;
+    padding: 14px 34px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.btn-techhub:hover {
+    background: #ff4a4a;
+    transform: translateY(-3px);
+}
+
+.btn-outline-techhub {
+    border: 1px solid rgba(255,255,255,.25);
+    color: white;
+    padding: 14px 34px;
+    border-radius: 50px;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    transition: .3s;
+}
+
+.btn-outline-techhub:hover {
+    background: rgba(255,255,255,.08);
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 600px;
+    animation: floating 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 35px rgba(255,0,0,.35));
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+/* ===============================
+   Responsive
+================================= */
+
+@media (max-width:992px) {
+
+    .hero-section {
+        text-align: center;
+        padding: 80px 0;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        margin-top: 50px;
+        max-width: 420px;
+    }
+}
+
+
+/* ===========================
+   Hero Features
+=========================== */
+
+.hero-features{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.feature-item{
+    padding:12px 22px;
+    border-radius:50px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    color:white;
+
+    transition:.35s;
+}
+
+.feature-item:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 0 25px rgba(255,45,45,.25);
+
+}
+
+/* ===========================
+   Hero Stats
+=========================== */
+
+.hero-stats{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    margin-top:40px;
+
+}
+
+.hero-stats h3{
+
+    color:#ff2d2d;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+}
+
+.hero-stats span{
+
+    color:#bdbdbd;
+
+}
+
+/* ===========================
+   Floating Glow
+=========================== */
+
+.hero-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    background:#ff2d2d;
+
+    filter:blur(180px);
+
+    opacity:.10;
+
+    top:-120px;
+
+    right:-120px;
+
+    animation:glowMove 8s ease-in-out infinite;
+
+}
+
+@keyframes glowMove{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(35px);
+
+    }
+
+}
+
+
+/* ===============================
+   Featured Categories
+================================= */
+
+.categories-section{
+    background:#080808;
+    padding:100px 0;
+}
+
+.section-title{
+    color:#fff;
+    font-size:2.7rem;
+    font-weight:700;
+}
+
+.section-subtitle{
+    color:#a8a8a8;
+    margin-top:12px;
+}
+
+.category-card{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    backdrop-filter:blur(18px);
+
+    height:100%;
+}
+
+.category-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 0 35px rgba(255,45,45,.18);
+
+}
+
+.category-icon{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+.category-card h4{
+
+    color:#fff;
+
+    margin-bottom:15px;
+
+}
+
+.category-card p{
+
+    color:#b8b8b8;
+
+}
+
+/* Featured Products */
+
+.featured-products{
+    background:#0d0d0d;
+    padding:100px 0;
+}
+
+.product-card{
+
+    background:#161616;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    height:100%;
+}
+
+.product-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 0 30px rgba(255,45,45,.15);
+
+    border-color:#ff2d2d;
+
+}
+
+.product-card img{
+
+    max-height:180px;
+
+    object-fit:contain;
+
+    margin-bottom:20px;
+
+}
+
+.product-card h5{
+
+    color:#fff;
+
+    margin-bottom:12px;
+
+}
+
+.price{
+
+    color:#ff3b3b;
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}

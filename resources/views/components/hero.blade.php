@@ -1,54 +1,79 @@
-<section class="hero">
+<section class="hero-section">
 
-    <div class="container">
+<div class="container">
 
-        <div class="row align-items-center">
+<div class="row align-items-center">
 
-            <div class="col-lg-6">
+<div class="col-lg-6">
 
-                <span class="hero-badge">
-                    Premium Electronics Marketplace
-                </span>
+<h1 class="hero-title">
+Innovation <br>
+<span>Starts Here</span>
+</h1>
 
-                <h1 class="hero-title">
-                    Innovation Starts Here
-                </h1>
+<p class="hero-subtitle">
+Discover premium gadgets, gaming accessories and smart technology with Apple-inspired design.
+</p>
 
-                <p class="hero-description">
-                    Discover premium gadgets, gaming accessories,
-                    PC components and smart devices with a clean,
-                    modern shopping experience built for Bangladesh.
-                </p>
+<div class="hero-buttons">
 
-                <div class="hero-actions">
+<a href="#" class="btn-techhub">
+Shop Now
+</a>
 
-                    <a href="{{ route('products') }}" class="btn btn-techhub">
-                        Shop Now
-                    </a>
+<a href="#" class="btn-outline-techhub">
+Explore Products
+</a>
 
-                    <a href="{{ route('about') }}" class="btn btn-outline-techhub">
-                        Learn More
-                    </a>
+</div>
 
-                </div>
+</div>
 
-            </div>
+<div class="col-lg-6 text-center">
 
-            <div class="col-lg-6">
+<img src="{{ asset('images/hero/hero-techhub.png') }}"
+class="hero-image img-fluid"
+alt="TechHub Hero">
 
-                <div class="hero-showcase">
+</div>
 
-                    <img
-                        src="https://placehold.co/650x500/png"
-                        class="img-fluid"
-                        alt="TechHub Hero">
+<div class="hero-features mt-5">
 
-                </div>
-
-            </div>
-
-        </div>
-
+    <div class="feature-item">
+        🚚 Free Shipping
     </div>
+
+    <div class="feature-item">
+        🔒 Secure Payment
+    </div>
+
+    <div class="feature-item">
+        🛡 1 Year Warranty
+    </div>
+
+</div>
+
+<div class="hero-stats">
+
+    <div>
+        <h3>500+</h3>
+        <span>Products</span>
+    </div>
+
+    <div>
+        <h3>20K+</h3>
+        <span>Customers</span>
+    </div>
+
+    <div>
+        <h3>4.9★</h3>
+        <span>Rating</span>
+    </div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
