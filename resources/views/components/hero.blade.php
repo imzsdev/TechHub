@@ -6,7 +6,7 @@
 
             <div class="col-lg-6">
 
-                <span class="hero-tag">
+                <span class="hero-badge">
                     Premium Electronics Marketplace
                 </span>
 
@@ -16,36 +16,30 @@
 
                 <p class="hero-description">
                     Discover premium gadgets, gaming accessories,
-                    PC components and smart devices designed
-                    for your everyday digital life.
+                    PC components and smart devices with a clean,
+                    modern shopping experience built for Bangladesh.
                 </p>
 
-                <div class="hero-buttons">
+                <div class="hero-actions">
 
-                    <a href="{{ route('products') }}"
-                       class="btn btn-techhub">
-
+                    <a href="{{ route('products') }}" class="btn btn-techhub">
                         Shop Now
-
                     </a>
 
-                    <a href="{{ route('about') }}"
-                       class="btn btn-outline-techhub">
-
+                    <a href="{{ route('about') }}" class="btn btn-outline-techhub">
                         Learn More
-
                     </a>
 
                 </div>
 
             </div>
 
-            <div class="col-lg-6 text-center">
+            <div class="col-lg-6">
 
-                <div class="hero-image">
+                <div class="hero-showcase">
 
                     <img
-                        src="https://placehold.co/550x450"
+                        src="https://placehold.co/650x500/png"
                         class="img-fluid"
                         alt="TechHub Hero">
 
