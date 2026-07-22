@@ -403,3 +403,227 @@ nav a:hover {
     margin-bottom:20px;
 
 }
+
+/* Flash Sale */
+
+.flash-sale{
+
+    background:#080808;
+
+    padding:100px 0;
+
+}
+
+.flash-box{
+
+    background:linear-gradient(135deg,#151515,#1d0909);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:60px;
+
+}
+
+.flash-badge{
+
+    display:inline-block;
+
+    background:#ff2d2d;
+
+    color:#fff;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.flash-box h2{
+
+    color:#fff;
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+.flash-box h2 span{
+
+    color:#ff3838;
+
+}
+
+.flash-box p{
+
+    color:#bbb;
+
+    margin-bottom:35px;
+
+}
+
+.countdown{
+
+    display:flex;
+
+    gap:20px;
+
+    margin-bottom:35px;
+
+}
+
+.time-box{
+
+    background:#101010;
+
+    border-radius:18px;
+
+    padding:18px 24px;
+
+    text-align:center;
+
+}
+
+.time-box h3{
+
+    color:#fff;
+
+    margin:0;
+
+}
+
+.time-box span{
+
+    color:#999;
+
+}
+
+.flash-image{
+
+    max-height:320px;
+
+}
+
+/* Trusted Brands */
+
+.brands-section{
+    background:#0b0b0b;
+    padding:100px 0;
+}
+
+.brands-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:25px;
+}
+
+.brand-card{
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+
+    color:#fff;
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    transition:.35s;
+}
+
+.brand-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 0 25px rgba(255,45,45,.18);
+
+}
+
+/* ===============================
+   Footer
+================================= */
+
+.footer-section{
+    background:#050505;
+    padding:80px 0 30px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-logo{
+    color:#fff;
+    font-size:2rem;
+    font-weight:800;
+}
+
+.footer-text{
+    color:#bdbdbd;
+    line-height:1.8;
+    margin-top:15px;
+}
+
+.footer-section h5{
+    color:#fff;
+    margin-bottom:20px;
+}
+
+.footer-links{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.footer-links li{
+    margin-bottom:12px;
+}
+
+.footer-links a{
+    color:#bdbdbd;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#ff2d2d;
+}
+
+.footer-input{
+    background:#151515;
+    border:1px solid rgba(255,255,255,.08);
+    color:#fff;
+}
+
+.footer-input::placeholder{
+    color:#888;
+}
+
+.footer-input:focus{
+    background:#151515;
+    color:#fff;
+    border-color:#ff2d2d;
+    box-shadow:none;
+}
+
+.footer-divider{
+    margin:50px 0 25px;
+    border-color:rgba(255,255,255,.08);
+}
+
+.footer-bottom{
+    text-align:center;
+    color:#888;
+}

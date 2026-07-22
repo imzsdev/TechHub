@@ -175,4 +175,110 @@
 
 </section>
 
+<!-- ========================= -->
+<!-- Featured Categories -->
+<!-- ========================= -->
+
+<section class="flash-sale">
+
+    <div class="container">
+
+        <div class="flash-box">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8">
+
+                    <span class="flash-badge">
+                        🔥 LIMITED OFFER
+                    </span>
+
+                    <h2>
+                        Flash Sale Up To
+                        <span>50% OFF</span>
+                    </h2>
+
+                    <p>
+                        Upgrade your setup with premium gadgets at exclusive prices.
+                    </p>
+
+                    <div class="countdown">
+
+                        <div class="time-box">
+                            <h3>02</h3>
+                            <span>Days</span>
+                        </div>
+
+                        <div class="time-box">
+                            <h3>12</h3>
+                            <span>Hours</span>
+                        </div>
+
+                        <div class="time-box">
+                            <h3>45</h3>
+                            <span>Minutes</span>
+                        </div>
+
+                    </div>
+
+                    <a href="#" class="btn-techhub mt-4">
+                        Shop Flash Sale
+                    </a>
+
+                </div>
+
+                <div class="col-lg-4 text-center">
+
+                    <img
+                        src="{{ asset('images/products/headphone.png') }}"
+                        class="flash-image img-fluid"
+                        alt="Flash Sale">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Trusted Brands -->
+<!-- ========================= -->
+
+<section class="brands-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="section-title">
+                Trusted Brands
+            </h2>
+
+            <p class="section-subtitle">
+                We partner with the world's leading technology brands.
+            </p>
+
+        </div>
+
+        <div class="brands-grid">
+
+            <div class="brand-card">Apple</div>
+            <div class="brand-card">ASUS</div>
+            <div class="brand-card">MSI</div>
+            <div class="brand-card">Logitech</div>
+            <div class="brand-card">Sony</div>
+            <div class="brand-card">JBL</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+@include('components.footer')
+
 @endsection
