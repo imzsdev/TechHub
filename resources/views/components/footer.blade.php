@@ -18,6 +18,22 @@
 
             </div>
 
+            <div class="footer-contact">
+
+                <p>
+                   📍 Aftabnagar, Dhaka, Bangladesh
+                </p>
+
+                <p>
+                    📧 support@techhub.com
+                 </p>
+
+                <p>
+                    📞 +880 1935-000013
+                 </p>
+
+            </div>
+
             <!-- Shop -->
 
             <div class="col-lg-2">
@@ -72,6 +88,32 @@
         </div>
 
         <hr class="footer-divider">
+
+        <div class="footer-social">
+
+            <a href="#"><i class="bi bi-facebook"></i></a>
+
+            <a href="#"><i class="bi bi-instagram"></i></a>
+
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+
+            <a href="#"><i class="bi bi-youtube"></i></a>
+
+        </div>
+
+        <div class="payment-list">
+
+            <span>Visa</span>
+
+            <span>Mastercard</span>
+
+            <span>bKash</span>
+
+            <span>Nagad</span>
+
+            <span>SSLCommerz</span>
+
+        </div>
 
         <div class="footer-bottom">
 
