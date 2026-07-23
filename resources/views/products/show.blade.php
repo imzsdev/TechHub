@@ -22,8 +22,8 @@
 
                         <img
                             id="mainImage"
-                            src="{{ asset($product['images'][0]) }}"
-                            alt="{{ $product['name'] }}"
+                            src="{{ asset($product->gallery_images[0]) }}"
+                            alt="{{ $product->name }}"
                             class="img-fluid">
 
                     </div>
@@ -32,7 +32,7 @@
 
                     <div class="thumbnail-gallery mt-4">
 
-                        @foreach ($product['images'] as $image)
+                        @foreach ($product->gallery_images as $image)
 
                             <div class="thumbnail-item">
 
@@ -63,7 +63,7 @@
                 </span>
 
                 <h1 class="text-white fw-bold mb-3">
-                    {{ $product['name'] }}
+                    {{ $product->name }}
                 </h1>
 
                 <div class="mb-3">
@@ -73,20 +73,20 @@
                     </span>
 
                     <span class="text-secondary ms-2">
-                        ({{ $product['rating'] }} Rating)
+                        ({{ $product->rating }} Rating)
                     </span>
 
                 </div>
 
                 <h2 class="text-danger fw-bold mb-4">
 
-                    {{ $product['price'] }}
+                    {{ $product->price }}
 
                 </h2>
 
                 <p class="text-secondary product-description">
 
-                    {{ $product['description'] }}
+                    {{ $product->description }}
 
                 </p>
 

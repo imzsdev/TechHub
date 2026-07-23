@@ -2,42 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
+    /**
+     * Product Listing
+     */
     public function index()
     {
-        return view('products.index');
+        $products = Product::where('is_active', true)
+            ->latest()
+            ->get();
+
+        return view('products.index', compact('products'));
     }
 
+    /**
+     * Product Details
+     */
     public function show($slug)
     {
-        $product = [
-
-            'slug' => $slug,
-
-            'name' => 'Gaming Headphones',
-
-            'price' => '৳ 5,999',
-
-            'rating' => '4.9',
-
-            'description' => 'Premium wireless gaming headphones with RGB lighting, crystal clear microphone and immersive surround sound.',
-
-            'images' => [
-
-                'images/products/headphone.png',
-
-                'images/products/keyboard.png',
-
-                'images/products/laptop.png',
-
-                'images/products/watch.png',
-
-            ],
-
-        ];
+        $product = Product::where('slug', $slug)
+            ->where('is_active', true)
+            ->firstOrFail();
 
         return view('products.show', compact('product'));
     }
