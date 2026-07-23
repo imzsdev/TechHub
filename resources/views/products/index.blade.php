@@ -22,9 +22,9 @@
 
         <div class="row">
 
-            <!-- =========================
+            <!-- ==========================
                  Sidebar
-            ========================== -->
+            =========================== -->
 
             <div class="col-lg-3 mb-4">
 
@@ -34,49 +34,45 @@
                         Filters
                     </h4>
 
-                    <!-- Category -->
-
                     <h6 class="filter-title">
                         Category
                     </h6>
 
                     <div class="form-check mb-2">
                         <input class="form-check-input" type="checkbox" id="laptop">
-                        <label class="form-check-label text-light" for="laptop">
+                        <label class="form-check-label" for="laptop">
                             Laptops
                         </label>
                     </div>
 
                     <div class="form-check mb-2">
                         <input class="form-check-input" type="checkbox" id="keyboard">
-                        <label class="form-check-label text-light" for="keyboard">
+                        <label class="form-check-label" for="keyboard">
                             Keyboards
                         </label>
                     </div>
 
                     <div class="form-check mb-2">
                         <input class="form-check-input" type="checkbox" id="headphone">
-                        <label class="form-check-label text-light" for="headphone">
+                        <label class="form-check-label" for="headphone">
                             Headphones
                         </label>
                     </div>
 
                     <div class="form-check mb-4">
                         <input class="form-check-input" type="checkbox" id="watch">
-                        <label class="form-check-label text-light" for="watch">
+                        <label class="form-check-label" for="watch">
                             Smart Watches
                         </label>
                     </div>
 
                     <hr>
 
-                    <!-- Brand -->
-
                     <h6 class="filter-title mt-4">
                         Brand
                     </h6>
 
-                    <select class="form-select bg-dark text-white border-secondary">
+                    <select class="form-select sort-select">
 
                         <option>All Brands</option>
                         <option>Apple</option>
@@ -88,8 +84,6 @@
                     </select>
 
                     <hr>
-
-                    <!-- Price -->
 
                     <h6 class="filter-title mt-4">
                         Price
@@ -107,11 +101,53 @@
 
             </div>
 
-            <!-- =========================
-                 Product Grid
-            ========================== -->
+            <!-- ==========================
+                 Product Area
+            =========================== -->
 
             <div class="col-lg-9">
+
+                <!-- Toolbar -->
+
+                <div class="product-toolbar mb-4">
+
+                    <div class="row align-items-center">
+
+                        <div class="col-md-4 mb-3 mb-md-0">
+
+                            <span class="product-count">
+                                Showing 4 Products
+                            </span>
+
+                        </div>
+
+                        <div class="col-md-4 mb-3 mb-md-0">
+
+                            <input
+                                type="text"
+                                class="form-control search-input"
+                                placeholder="Search products...">
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <select class="form-select sort-select">
+
+                                <option>Newest</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Best Selling</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Product Grid -->
 
                 <div class="row g-4">
 
@@ -121,10 +157,9 @@
 
                         <div class="product-card">
 
-                            <img
-                                src="https://placehold.co/600x600/111111/FFFFFF?text=Headphone"
-                                class="img-fluid rounded"
-                                alt="Product">
+                            <img src="https://placehold.co/600x600/111111/FFFFFF?text=Headphone"
+                                 class="img-fluid rounded"
+                                 alt="Headphone">
 
                             <div class="mt-3">
 
@@ -156,10 +191,9 @@
 
                         <div class="product-card">
 
-                            <img
-                                src="https://placehold.co/600x600/111111/FFFFFF?text=Keyboard"
-                                class="img-fluid rounded"
-                                alt="Product">
+                            <img src="https://placehold.co/600x600/111111/FFFFFF?text=Keyboard"
+                                 class="img-fluid rounded"
+                                 alt="Keyboard">
 
                             <div class="mt-3">
 
@@ -191,10 +225,9 @@
 
                         <div class="product-card">
 
-                            <img
-                                src="https://placehold.co/600x600/111111/FFFFFF?text=Watch"
-                                class="img-fluid rounded"
-                                alt="Product">
+                            <img src="https://placehold.co/600x600/111111/FFFFFF?text=Watch"
+                                 class="img-fluid rounded"
+                                 alt="Watch">
 
                             <div class="mt-3">
 
@@ -226,10 +259,9 @@
 
                         <div class="product-card">
 
-                            <img
-                                src="https://placehold.co/600x600/111111/FFFFFF?text=Mouse"
-                                class="img-fluid rounded"
-                                alt="Product">
+                            <img src="https://placehold.co/600x600/111111/FFFFFF?text=Mouse"
+                                 class="img-fluid rounded"
+                                 alt="Mouse">
 
                             <div class="mt-3">
 

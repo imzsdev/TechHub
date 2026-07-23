@@ -844,3 +844,514 @@ nav a:hover {
     background:#ff2d2d;
 
 }
+
+
+/* ===================================
+   Product Toolbar
+=================================== */
+
+.product-toolbar{
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    margin-bottom:30px;
+
+}
+
+.product-count{
+
+    color:#bdbdbd;
+
+    font-weight:600;
+
+}
+
+.search-input{
+
+    background:#0f0f0f;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#fff;
+
+}
+
+.search-input::placeholder{
+
+    color:#777;
+
+}
+
+.search-input:focus{
+
+    background:#0f0f0f;
+
+    color:#fff;
+
+    border-color:#ff2d2d;
+
+    box-shadow:none;
+
+}
+
+.sort-select{
+
+    background:#0f0f0f;
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.sort-select:focus{
+
+    border-color:#ff2d2d;
+
+    box-shadow:none;
+
+}
+
+
+/* ===================================
+   Chapter 19A
+=================================== */
+
+.product-details-page{
+
+    background:#0b0b0b;
+
+    min-height:100vh;
+
+}
+
+.product-details-page img{
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.product-details-page h1{
+
+    font-size:3rem;
+
+}
+
+.product-details-page p{
+
+    line-height:1.8;
+
+}
+
+
+/* ===================================
+   Chapter 19B - Product Gallery
+=================================== */
+
+.product-gallery{
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:20px;
+
+}
+
+.product-gallery img{
+
+    width:100%;
+
+    transition:.35s;
+
+}
+
+.product-gallery:hover img{
+
+    transform:scale(1.03);
+
+}
+
+
+/* =====================================================
+   CHAPTER 19B - PREMIUM PRODUCT DETAILS
+===================================================== */
+
+.product-details-page{
+
+    background:#0b0b0b;
+
+    min-height:100vh;
+
+}
+
+/* =======================
+   Product Gallery
+======================= */
+
+.product-gallery{
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:25px;
+
+    backdrop-filter:blur(15px);
+
+}
+
+.main-product-image{
+
+    background:#141414;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    overflow:hidden;
+
+}
+
+.main-product-image img{
+
+    width:100%;
+
+    transition:.4s ease;
+
+    cursor:zoom-in;
+
+}
+
+.main-product-image:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/* =======================
+   Thumbnail Gallery
+======================= */
+
+.thumbnail-gallery{
+
+    display:flex;
+
+    gap:15px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+}
+
+.thumbnail-item{
+
+    width:90px;
+
+    height:90px;
+
+    background:#171717;
+
+    border:2px solid transparent;
+
+    border-radius:16px;
+
+    padding:8px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.thumbnail-item:hover{
+
+    border-color:#ff2d2d;
+
+    transform:translateY(-5px);
+
+}
+
+.thumbnail-item img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+/* =======================
+   Product Information
+======================= */
+
+.product-description{
+
+    line-height:1.9;
+
+    color:#bdbdbd;
+
+}
+
+.quantity-wrapper button{
+
+    width:45px;
+
+    height:45px;
+
+}
+
+/* =======================
+   Cards
+======================= */
+
+.delivery-card,
+.feature-card{
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:22px;
+
+}
+
+/* =======================
+   Mobile
+======================= */
+
+@media(max-width:991px){
+
+    .thumbnail-gallery{
+
+        justify-content:flex-start;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .thumbnail-item{
+
+        width:70px;
+
+        height:70px;
+
+    }
+
+}
+
+
+/* ===================================
+   Active Thumbnail
+=================================== */
+
+.thumbnail-item.active{
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 0 20px rgba(255,45,45,.35);
+
+}
+
+
+/* ===================================
+   Chapter 19C - Quantity Selector
+=================================== */
+
+.quantity-box{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+}
+
+.qty-btn{
+
+    width:52px;
+
+    height:52px;
+
+    background:none;
+
+    border:none;
+
+    color:#fff;
+
+    font-size:24px;
+
+    transition:.3s;
+
+}
+
+.qty-btn:hover{
+
+    background:#ff2d2d;
+
+}
+
+.qty-value{
+
+    width:60px;
+
+    text-align:center;
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+
+/* ===================================
+   Chapter 19C - Rating Summary
+=================================== */
+
+.rating-summary-card{
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:24px;
+
+}
+
+.rating-row{
+
+    display:grid;
+
+    grid-template-columns:50px 1fr 50px;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:14px;
+
+    color:#fff;
+
+}
+
+.rating-progress{
+
+    width:100%;
+
+    height:8px;
+
+    background:#2a2a2a;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.rating-fill{
+
+    height:100%;
+
+    background:#ff2d2d;
+
+    border-radius:999px;
+
+}
+
+
+/* ===================================
+   Chapter 19C - Premium Buttons
+=================================== */
+
+.add-cart-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    transition:.35s ease;
+
+}
+
+.add-cart-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 28px rgba(255,45,45,.35);
+
+}
+
+.wishlist-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 24px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:transparent;
+
+    color:#fff;
+
+    transition:.35s ease;
+
+}
+
+.wishlist-btn:hover{
+
+    background:#ffffff10;
+
+    border-color:#ff2d2d;
+
+}
+
+.wishlist-btn.active{
+
+    background:#ff2d2d;
+
+    border-color:#ff2d2d;
+
+}
+
+#wishlistIcon{
+
+    font-size:20px;
+
+}
