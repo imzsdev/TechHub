@@ -20,7 +20,9 @@
                         Login to your TechHub account.
                     </p>
 
-                    <form>
+                    <form method="POST" action="{{ route('login') }}">
+
+                        @csrf
 
                         <div class="mb-4">
 
@@ -30,8 +32,16 @@
 
                             <input
                                 type="email"
-                                class="form-control"
-                                placeholder="Enter your email">
+                                name="email"
+                                class="form-control @error('email') is-invalid @enderror"
+                                placeholder="Enter your email"
+                                value="{{ old('email') }}">
+
+                            @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
 
                         </div>
 
@@ -43,8 +53,15 @@
 
                             <input
                                 type="password"
-                                class="form-control"
+                                name="password"
+                                class="form-control @error('password') is-invalid @enderror"
                                 placeholder="Enter your password">
+
+                            @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
 
                         </div>
 

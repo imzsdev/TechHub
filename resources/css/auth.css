@@ -148,3 +148,19 @@
     color:#ff5555;
 
 }
+
+.invalid-feedback{
+    display:block;
+    color:#ff6b6b;
+    margin-top:6px;
+    font-size:.9rem;
+}
+
+.form-control.is-invalid{
+    border-color:#ff4d4d;
+}
+
+.form-control.is-invalid:focus{
+    border-color:#ff4d4d;
+    box-shadow:0 0 0 .2rem rgba(255,77,77,.20);
+}

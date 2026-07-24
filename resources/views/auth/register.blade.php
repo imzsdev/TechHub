@@ -20,7 +20,9 @@
                         Join TechHub today.
                     </p>
 
-                    <form>
+                    <form method="POST" action="{{ route('register') }}">
+
+                        @csrf
 
                         <div class="mb-3">
 
@@ -30,8 +32,16 @@
 
                             <input
                                 type="text"
-                                class="form-control"
-                                placeholder="Enter your full name">
+                                name="name"
+                                class="form-control @error('name') is-invalid @enderror"
+                                placeholder="Enter your full name"
+                                value="{{ old('name') }}">
+
+                            @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
 
                         </div>
 
@@ -43,8 +53,16 @@
 
                             <input
                                 type="email"
-                                class="form-control"
-                                placeholder="Enter your email">
+                                name="email"
+                                class="form-control @error('email') is-invalid @enderror"
+                                placeholder="Enter your email"
+                                value="{{ old('email') }}">
+
+                            @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
 
                         </div>
 
@@ -56,8 +74,15 @@
 
                             <input
                                 type="password"
-                                class="form-control"
+                                name="password"
+                                class="form-control @error('password') is-invalid @enderror"
                                 placeholder="Create password">
+
+                            @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
 
                         </div>
 
@@ -69,6 +94,7 @@
 
                             <input
                                 type="password"
+                                name="password_confirmation"
                                 class="form-control"
                                 placeholder="Confirm password">
 

@@ -57,6 +57,8 @@
 
             </a>
 
+            @guest
+
             <a href="{{ route('login') }}" class="btn btn-outline-light me-2">
                 Login
             </a>
@@ -64,6 +66,32 @@
             <a href="{{ route('register') }}" class="btn btn-danger">
                 Register
             </a>
+
+            @endguest
+
+            @auth
+
+                <span class="text-white me-3">
+                    👋 {{ Auth::user()->name }}
+                </span>
+
+                <form action="{{ route('logout') }}"
+                      method="POST"
+                      class="d-inline">
+
+                    @csrf
+
+                    <button
+                        type="submit"
+                        class="btn btn-danger">
+
+                        Logout
+
+                    </button>
+
+                </form>
+
+            @endauth
 
         </div>
 
