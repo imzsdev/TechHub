@@ -2,10 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+
 class HomeController extends Controller
 {
+    /**
+     * Homepage
+     */
     public function index()
     {
-        return view('home');
+        $featuredProducts = Product::where('is_active', true)
+            ->where('is_featured', true)
+            ->latest()
+            ->take(4)
+            ->get();
+
+        return view('home', compact('featuredProducts'));
     }
 }

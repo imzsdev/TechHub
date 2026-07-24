@@ -1,49 +1,174 @@
+/* ===================================
+   PRIMARY BUTTON
+=================================== */
+
 .btn-techhub{
 
-    background: var(--accent);
+    background:#ff2d2d;
 
-    color:white;
+    color:#fff;
 
     border:none;
 
-    border-radius: var(--btn-radius);
+    padding:14px 34px;
 
-    padding:12px 28px;
+    border-radius:50px;
 
     font-weight:600;
 
-    transition: var(--transition);
+    text-decoration:none;
+
+    transition:.35s ease;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
 
 }
 
 .btn-techhub:hover{
 
+    background:#ff4444;
+
+    color:#fff;
+
     transform:translateY(-3px);
 
-    background:#c5001f;
-
-    color:white;
+    box-shadow:0 12px 28px rgba(255,45,45,.30);
 
 }
 
+/* ===================================
+   OUTLINE BUTTON
+=================================== */
+
 .btn-outline-techhub{
 
-    border:2px solid white;
+    border:1px solid rgba(255,255,255,.20);
 
-    color:white;
+    color:#fff;
 
-    border-radius:var(--btn-radius);
+    background:transparent;
 
-    padding:12px 28px;
+    padding:14px 34px;
 
-    transition:var(--transition);
+    border-radius:50px;
+
+    text-decoration:none;
+
+    transition:.35s ease;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+    
+    white-space:nowrap;
 
 }
 
 .btn-outline-techhub:hover{
 
-    background:white;
+    background:rgba(255,255,255,.08);
 
-    color:black;
+    color:#fff;
 
 }
+
+/* ===================================
+   ADD TO CART
+=================================== */
+
+.add-cart-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+/* ===================================
+   WISHLIST
+=================================== */
+
+.wishlist-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 24px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:transparent;
+
+    color:#fff;
+
+    transition:.35s ease;
+
+}
+
+.wishlist-btn:hover{
+
+    background:#ffffff10;
+
+    border-color:#ff2d2d;
+
+}
+
+.wishlist-btn.active{
+
+    background:#ff2d2d;
+
+    border-color:#ff2d2d;
+
+}
+
+#wishlistIcon{
+
+    font-size:20px;
+
+}
+
+/* ===================================
+   QUANTITY BUTTON
+=================================== */
+
+.qty-btn{
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    background:none;
+
+    color:#fff;
+
+    font-size:24px;
+
+    transition:.3s;
+
+}
+
+.qty-btn:hover{
+
+    background:#ff2d2d;
+
+}
+

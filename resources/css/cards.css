@@ -1,0 +1,750 @@
+/* ==================================================
+   TechHub Cards.css
+   Phase 5 - Part 1
+   Categories + Featured Products + Product Cards
+================================================== */
+
+/* ===============================
+   SECTION TITLES
+================================= */
+
+.section-title{
+    color:#fff;
+    font-size:2.7rem;
+    font-weight:700;
+    line-height:1.2;
+}
+
+.section-subtitle{
+    color:#a8a8a8;
+    font-size:1.05rem;
+    margin-top:12px;
+    margin-bottom:0;
+}
+
+/* ===============================
+   CATEGORIES
+================================= */
+
+.categories-section{
+    background:#080808;
+    padding:100px 0;
+}
+
+.category-card{
+
+    height:100%;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    backdrop-filter:blur(18px);
+
+    transition:.35s ease;
+
+}
+
+.category-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 0 35px rgba(255,45,45,.18);
+
+}
+
+.category-icon{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+.category-card h4{
+
+    color:#fff;
+
+    margin-bottom:15px;
+
+    font-weight:600;
+
+}
+
+.category-card p{
+
+    color:#b8b8b8;
+
+    margin:0;
+
+}
+
+/* ===============================
+   FEATURED PRODUCTS
+================================= */
+
+.featured-products{
+
+    background:#0d0d0d;
+
+    padding:100px 0;
+
+}
+
+/* ===============================
+   PRODUCT CARD
+================================= */
+
+.product-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:25px;
+
+    transition:.35s ease;
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 0 30px rgba(255,45,45,.18);
+
+}
+
+.product-card img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:contain;
+
+    margin-bottom:20px;
+
+}
+
+.product-card h5{
+
+    color:#fff;
+
+    font-size:1.1rem;
+
+    font-weight:600;
+
+    min-height:60px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    margin-bottom:12px;
+
+}
+
+.product-card p{
+
+    color:#b8b8b8;
+
+    min-height:48px;
+
+    margin-bottom:15px;
+
+}
+
+.product-card h4,
+.price{
+
+    color:#ff3b3b;
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.product-card .btn-techhub{
+
+    width:100%;
+
+    margin-top:auto;
+
+}
+
+/* ==================================================
+   Phase 5 - Part 2
+   Flash Sale
+================================================== */
+
+.flash-sale{
+
+    background:#080808;
+
+    padding:100px 0;
+
+}
+
+.flash-box{
+
+    background:linear-gradient(135deg,#151515,#1d0909);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:60px;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.flash-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+
+    height:280px;
+
+    background:#ff2d2d;
+
+    filter:blur(130px);
+
+    opacity:.12;
+
+    top:-120px;
+
+    right:-120px;
+
+}
+
+.flash-badge{
+
+    display:inline-block;
+
+    background:#ff2d2d;
+
+    color:#fff;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.flash-box h2{
+
+    color:#fff;
+
+    font-size:3rem;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    margin-bottom:20px;
+
+}
+
+.flash-box h2 span{
+
+    color:#ff2d2d;
+
+}
+
+.flash-box p{
+
+    color:#bdbdbd;
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+.countdown{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:35px;
+
+}
+
+.time-box{
+
+    width:90px;
+
+    height:90px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#101010;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    transition:.35s ease;
+
+}
+
+.time-box:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#ff2d2d;
+
+}
+
+.time-box h3{
+
+    color:#fff;
+
+    font-size:2rem;
+
+    margin:0;
+
+    font-weight:700;
+
+}
+
+.time-box span{
+
+    color:#999;
+
+    font-size:.9rem;
+
+}
+
+.flash-image{
+
+    width:100%;
+
+    max-height:320px;
+
+    object-fit:contain;
+
+    filter:drop-shadow(0 0 30px rgba(255,45,45,.25));
+
+}
+
+/* ==================================================
+   Phase 5 - Part 3
+   Brands + Product Details Cards
+================================================== */
+
+/* ===============================
+   Trusted Brands
+================================= */
+
+.brands-section{
+
+    background:#0b0b0b;
+
+    padding:100px 0;
+
+}
+
+.brands-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:25px;
+
+}
+
+.brand-card{
+
+    background:linear-gradient(145deg,#151515,#1b1b1b);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+
+    color:#fff;
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    transition:.35s ease;
+
+}
+
+.brand-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 15px 35px rgba(255,45,45,.18);
+
+}
+
+/* ===============================
+   Delivery Card
+================================= */
+
+.delivery-card{
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:25px;
+
+    transition:.35s ease;
+
+}
+
+.delivery-card:hover{
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 10px 30px rgba(255,45,45,.12);
+
+}
+
+.delivery-card h5{
+
+    color:#fff;
+
+    font-weight:700;
+
+}
+
+.delivery-card ul{
+
+    margin:0;
+
+    padding-left:18px;
+
+}
+
+.delivery-card li{
+
+    color:#bdbdbd;
+
+    margin-bottom:12px;
+
+    line-height:1.7;
+
+}
+
+/* ===============================
+   Feature Card
+================================= */
+
+.feature-card{
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:25px;
+
+    transition:.35s ease;
+
+}
+
+.feature-card:hover{
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 10px 30px rgba(255,45,45,.12);
+
+}
+
+.feature-card h5{
+
+    color:#fff;
+
+    font-weight:700;
+
+}
+
+.feature-card ul{
+
+    margin:0;
+
+    padding-left:18px;
+
+}
+
+.feature-card li{
+
+    color:#bdbdbd;
+
+    margin-bottom:12px;
+
+    line-height:1.8;
+
+}
+
+/* ===============================
+   Rating Summary Card
+================================= */
+
+.rating-summary-card{
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:25px;
+
+}
+
+.rating-row{
+
+    display:grid;
+
+    grid-template-columns:55px 1fr 55px;
+
+    gap:15px;
+
+    align-items:center;
+
+    color:#fff;
+
+    margin-bottom:15px;
+
+}
+
+.rating-progress{
+
+    width:100%;
+
+    height:8px;
+
+    background:#2a2a2a;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.rating-fill{
+
+    height:100%;
+
+    background:#ff2d2d;
+
+    border-radius:999px;
+
+}
+
+/* ==================================================
+   Phase 5 - Part 4
+   Product Details + Gallery + Final Polish
+================================================== */
+
+/* ===============================
+   Product Details Page
+================================= */
+
+.product-details-page{
+    background:#0b0b0b;
+    min-height:100vh;
+    padding:80px 0;
+}
+
+/* ===============================
+   Product Gallery
+================================= */
+
+.product-gallery{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:25px;
+    backdrop-filter:blur(15px);
+}
+
+.main-product-image{
+    background:#141414;
+    border-radius:20px;
+    padding:30px;
+    overflow:hidden;
+}
+
+.main-product-image img{
+    width:100%;
+    transition:.4s ease;
+    cursor:zoom-in;
+}
+
+.main-product-image:hover img{
+    transform:scale(1.06);
+}
+
+.thumbnail-gallery{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:25px;
+}
+
+.thumbnail-item{
+    width:90px;
+    height:90px;
+    background:#171717;
+    border:2px solid transparent;
+    border-radius:16px;
+    padding:8px;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.thumbnail-item:hover,
+.thumbnail-item.active{
+    border-color:#ff2d2d;
+    transform:translateY(-5px);
+    box-shadow:0 0 20px rgba(255,45,45,.30);
+}
+
+.thumbnail-item img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+/* ===============================
+   Product Description
+================================= */
+
+.product-description{
+    color:#bdbdbd;
+    line-height:1.9;
+}
+
+/* Equal Height Fix - Featured Products Only */
+
+.featured-products .row > [class*="col"]{
+    display:flex;
+}
+
+.featured-products .row > [class*="col"] > .product-card{
+    width:100%;
+}
+
+/* ===============================
+   Smooth Animation
+================================= */
+
+.category-card,
+.product-card,
+.brand-card,
+.delivery-card,
+.feature-card,
+.flash-box,
+.time-box{
+    transition:all .35s ease;
+}
+
+/* ===============================
+   Mobile
+================================= */
+
+@media(max-width:991px){
+
+    .flash-box{
+        padding:40px 30px;
+    }
+
+    .flash-box h2{
+        font-size:2.2rem;
+    }
+
+    .thumbnail-gallery{
+        justify-content:flex-start;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .category-card{
+        padding:30px 20px;
+    }
+
+    .product-card{
+        padding:20px;
+    }
+
+    .thumbnail-item{
+        width:70px;
+        height:70px;
+    }
+
+    .countdown{
+        gap:12px;
+    }
+
+    .time-box{
+        width:72px;
+        height:72px;
+    }
+
+}

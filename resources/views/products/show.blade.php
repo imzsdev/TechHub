@@ -8,9 +8,7 @@
 
         <div class="row g-5">
 
-            <!-- ==========================================
-                 Product Gallery
-            =========================================== -->
+            <!-- Product Gallery -->
 
             <div class="col-lg-6">
 
@@ -52,35 +50,41 @@
 
             </div>
 
-            <!-- ==========================================
-                 Product Information
-            =========================================== -->
+            <!-- Product Information -->
 
             <div class="col-lg-6">
 
                 <span class="badge bg-danger px-3 py-2 mb-3">
+
                     New Arrival
+
                 </span>
 
                 <h1 class="text-white fw-bold mb-3">
+
                     {{ $product->name }}
+
                 </h1>
 
                 <div class="mb-3">
 
                     <span class="text-warning fs-5">
+
                         ★★★★★
+
                     </span>
 
                     <span class="text-secondary ms-2">
+
                         ({{ $product->rating }} Rating)
+
                     </span>
 
                 </div>
 
                 <h2 class="text-danger fw-bold mb-4">
 
-                    {{ $product->price }}
+                    ৳ {{ number_format($product->price, 2) }}
 
                 </h2>
 
@@ -90,15 +94,25 @@
 
                 </p>
 
-                <!-- Stock -->
-
                 <div class="mt-4">
 
-                    <span class="badge bg-success">
+                    @if($product->stock > 0)
 
-                        In Stock
+                        <span class="badge bg-success">
 
-                    </span>
+                            In Stock ({{ $product->stock }})
+
+                        </span>
+
+                    @else
+
+                        <span class="badge bg-danger">
+
+                            Out of Stock
+
+                        </span>
+
+                    @endif
 
                 </div>
 
@@ -108,7 +122,7 @@
 
                     <label class="text-white mb-3 d-block">
 
-                       Quantity
+                        Quantity
 
                     </label>
 
@@ -148,15 +162,26 @@
 
                 <div class="d-flex flex-wrap gap-3 mt-5">
 
-                    <button
-                        type="button"
-                        class="btn-techhub px-5 add-cart-btn">
+                    <form action="{{ route('cart.add') }}" method="POST">
 
-                        <span>🛒</span>
+                        @csrf
 
-                        Add to Cart
+                        <input
+                            type="hidden"
+                            name="product_id"
+                            value="{{ $product->id }}">
 
-                    </button>
+                        <button
+                            type="submit"
+                            class="btn-techhub px-5 add-cart-btn">
+
+                            <span>🛒</span>
+
+                            Add to Cart
+
+                        </button>
+
+                    </form>
 
                     <button
                         type="button"
@@ -169,16 +194,14 @@
 
                     </button>
 
-                </div>
-
+                </div>              
+                
                 <!-- Delivery Information -->
 
                 <div class="delivery-card mt-5">
 
                     <h5 class="text-white mb-3">
-
                         Delivery Information
-
                     </h5>
 
                     <ul class="list-unstyled text-secondary mb-0">
@@ -192,7 +215,7 @@
                         </li>
 
                         <li class="mb-2">
-                            🔄 ৭ দিনের Replacement Warranty
+                            🔄 7 Days Replacement Warranty
                         </li>
 
                         <li>
@@ -219,7 +242,7 @@
 
                         <li>50mm High Fidelity Drivers</li>
 
-                        <li>Crystal Clear Noise Cancelling Mic</li>
+                        <li>Crystal Clear Noise Cancelling Microphone</li>
 
                         <li>Wireless & Wired Dual Mode</li>
 
@@ -245,7 +268,7 @@
 
                         <h1 class="text-warning me-3 mb-0">
 
-                            4.9
+                            {{ number_format($product->rating,1) }}
 
                         </h1>
 
@@ -259,7 +282,7 @@
 
                             <small class="text-secondary">
 
-                                Based on 1,248 Reviews
+                                Based on {{ number_format($product->review_count) }} Reviews
 
                             </small>
 
@@ -269,30 +292,42 @@
 
                     <div class="rating-bars">
 
-                        @foreach([
-                            ['5★',90],
-                            ['4★',7],
-                            ['3★',2],
-                            ['2★',1],
-                            ['1★',0]
-                        ] as $rate)
+                        @php
 
-                        <div class="rating-row">
+                            $ratings = [
 
-                            <span>{{ $rate[0] }}</span>
+                                ['5★',90],
 
-                            <div class="rating-progress">
+                                ['4★',7],
 
-                                <div
-                                    class="rating-fill"
-                                    style="width:{{ $rate[1] }}%">
+                                ['3★',2],
+
+                                ['2★',1],
+
+                                ['1★',0],
+
+                            ];
+
+                        @endphp
+
+                        @foreach($ratings as $rate)
+
+                            <div class="rating-row">
+
+                                <span>{{ $rate[0] }}</span>
+
+                                <div class="rating-progress">
+
+                                    <div
+                                        class="rating-fill"
+                                        style="width: {{ $rate[1] }}%">
+                                    </div>
+
                                 </div>
 
+                                <span>{{ $rate[1] }}%</span>
+
                             </div>
-
-                            <span>{{ $rate[1] }}%</span>
-
-                        </div>
 
                         @endforeach
 

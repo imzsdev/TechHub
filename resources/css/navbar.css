@@ -1,0 +1,123 @@
+/* ===================================
+   NAVBAR
+=================================== */
+
+nav {
+
+    background: #111;
+
+    padding: 15px;
+
+}
+
+nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    margin-right: 20px;
+
+    transition: .3s;
+
+}
+
+nav a:hover {
+
+    color: #ff2d2d;
+
+}
+
+/* ===================================
+   HEADER
+=================================== */
+
+header {
+
+    background: #111;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+}
+
+header .container {
+
+    min-height: 80px;
+
+}
+
+header h2 {
+
+    color: #fff;
+
+    font-weight: 800;
+
+    margin: 0;
+
+}
+
+header h2:hover {
+
+    color: #ff2d2d;
+
+    transition: .3s;
+
+}
+
+header .form-control {
+
+    background: #151515;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    color: #fff;
+
+}
+
+header .form-control::placeholder {
+
+    color: #888;
+
+}
+
+header .form-control:focus {
+
+    background: #151515;
+
+    color: #fff;
+
+    border-color: #ff2d2d;
+
+    box-shadow: none;
+
+}
+
+/* ===================================
+   HEADER BUTTONS
+=================================== */
+
+header .btn {
+
+    transition: .3s;
+
+}
+
+header .btn-outline-light:hover {
+
+    background: #ff2d2d;
+
+    border-color: #ff2d2d;
+
+}
+
+header .btn-danger:hover {
+
+    transform: translateY(-2px);
+
+}
+
+header .badge {
+
+    font-size: .7rem;
+
+}

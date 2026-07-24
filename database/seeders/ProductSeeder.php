@@ -110,7 +110,7 @@ class ProductSeeder extends Seeder
                 ]),
                 'rating' => 4.8,
                 'review_count' => 402,
-                'is_featured' => false,
+                'is_featured' => true,
                 'is_flash_sale' => true,
                 'is_active' => true,
                 'created_at' => now(),

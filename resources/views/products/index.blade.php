@@ -116,7 +116,7 @@
                         <div class="col-md-4 mb-3 mb-md-0">
 
                             <span class="product-count">
-                                Showing 4 Products
+                                Showing {{ $products->count() }} Products
                             </span>
 
                         </div>
@@ -146,146 +146,77 @@
                     </div>
 
                 </div>
-
+                
                 <!-- Product Grid -->
 
                 <div class="row g-4">
 
-                    <!-- Product 1 -->
+                    @forelse($products as $product)
 
-                    <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-4 col-md-6">
 
-                        <div class="product-card">
+                            <div class="product-card h-100">
 
-                            <img src="https://placehold.co/600x600/111111/FFFFFF?text=Headphone"
-                                 class="img-fluid rounded"
-                                 alt="Headphone">
+                                <a href="{{ route('products.show', $product->slug) }}">
 
-                            <div class="mt-3">
+                                    <img
+                                       src="{{ asset($product->main_image) }}"
+                                       class="img-fluid rounded"
+                                       alt="{{ $product->name }}">
 
-                                <h5 class="text-white">
-                                    Gaming Headphones
-                                </h5>
+                                </a>
 
-                                <p class="text-secondary">
-                                    Premium Wireless RGB Headphones
-                                </p>
+                                <div class="mt-3">
 
-                                <h4 class="text-danger">
-                                    ৳ 5,999
-                                </h4>
+                                    <h5 class="text-white">
 
-                                <button class="btn-techhub w-100">
-                                    Add to Cart
-                                </button>
+                                        {{ $product->name }}
 
-                            </div>
+                                    </h5>
 
-                        </div>
+                                    <p class="text-secondary">
 
-                    </div>
+                                       {{ $product->short_description }}
 
-                    <!-- Product 2 -->
+                                    </p>
 
-                    <div class="col-lg-4 col-md-6">
+                                    <h4 class="text-danger">
 
-                        <div class="product-card">
+                                        ৳ {{ number_format($product->price, 2) }}
 
-                            <img src="https://placehold.co/600x600/111111/FFFFFF?text=Keyboard"
-                                 class="img-fluid rounded"
-                                 alt="Keyboard">
+                                    </h4>
 
-                            <div class="mt-3">
+                                    <div class="d-grid">
 
-                                <h5 class="text-white">
-                                    Mechanical Keyboard
-                                </h5>
+                                        <a
+                                            href="{{ route('products.show', $product->slug) }}"
+                                            class="btn-techhub text-decoration-none text-center">
 
-                                <p class="text-secondary">
-                                    RGB Mechanical Keyboard
-                                </p>
+                                            View Details
 
-                                <h4 class="text-danger">
-                                    ৳ 4,499
-                                </h4>
+                                        </a>
 
-                                <button class="btn-techhub w-100">
-                                    Add to Cart
-                                </button>
+                                    </div>
+
+                                </div>
 
                             </div>
 
                         </div>
 
-                    </div>
+                    @empty
 
-                    <!-- Product 3 -->
+                        <div class="col-12">
 
-                    <div class="col-lg-4 col-md-6">
+                            <div class="alert alert-warning text-center">
 
-                        <div class="product-card">
-
-                            <img src="https://placehold.co/600x600/111111/FFFFFF?text=Watch"
-                                 class="img-fluid rounded"
-                                 alt="Watch">
-
-                            <div class="mt-3">
-
-                                <h5 class="text-white">
-                                    Smart Watch
-                                </h5>
-
-                                <p class="text-secondary">
-                                    AMOLED Display Smart Watch
-                                </p>
-
-                                <h4 class="text-danger">
-                                    ৳ 6,999
-                                </h4>
-
-                                <button class="btn-techhub w-100">
-                                    Add to Cart
-                                </button>
+                                No products found.
 
                             </div>
 
-                        </div>
+                         </div>
 
-                    </div>
-
-                    <!-- Product 4 -->
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="product-card">
-
-                            <img src="https://placehold.co/600x600/111111/FFFFFF?text=Mouse"
-                                 class="img-fluid rounded"
-                                 alt="Mouse">
-
-                            <div class="mt-3">
-
-                                <h5 class="text-white">
-                                    Gaming Mouse
-                                </h5>
-
-                                <p class="text-secondary">
-                                    Wireless RGB Gaming Mouse
-                                </p>
-
-                                <h4 class="text-danger">
-                                    ৳ 2,999
-                                </h4>
-
-                                <button class="btn-techhub w-100">
-                                    Add to Cart
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                    @endforelse
 
                 </div>
 

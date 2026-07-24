@@ -1,0 +1,153 @@
+/* ==========================================
+   TechHub Responsive
+========================================== */
+
+/* =========================
+   Laptop (1200px)
+========================= */
+
+@media (max-width:1200px){
+
+    .hero-title{
+        font-size:3.4rem;
+    }
+
+    .flash-box{
+        padding:50px;
+    }
+
+}
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width:992px){
+
+    .hero-section{
+        text-align:center;
+        padding:80px 0;
+    }
+
+    .hero-title{
+        font-size:2.8rem;
+    }
+
+    .hero-buttons,
+    .hero-features,
+    .hero-stats{
+        justify-content:center;
+    }
+
+    .hero-image{
+        margin-top:50px;
+        max-width:420px;
+    }
+
+    .flash-box{
+        text-align:center;
+        padding:40px 30px;
+    }
+
+    .countdown{
+        justify-content:center;
+    }
+
+    .flash-image{
+        margin-top:40px;
+    }
+
+    .filter-card{
+        position:static;
+    }
+
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width:768px){
+
+    .section-title{
+        font-size:2rem;
+    }
+
+    .hero-title{
+        font-size:2.3rem;
+    }
+
+    .hero-subtitle{
+        font-size:1rem;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .hero-buttons .btn-techhub,
+    .hero-buttons .btn-outline-techhub{
+
+        width:220px;
+
+    }
+
+    .flash-box h2{
+        font-size:2rem;
+    }
+
+    .product-toolbar .row > div{
+        margin-bottom:15px;
+    }
+
+}
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width:576px){
+
+    .container{
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+    .hero-title{
+        font-size:2rem;
+    }
+
+    .category-card,
+    .product-card,
+    .flash-box,
+    .delivery-card,
+    .feature-card{
+        padding:20px;
+    }
+
+    .countdown{
+        gap:10px;
+    }
+
+    .time-box{
+        width:70px;
+        height:70px;
+    }
+
+    .time-box h3{
+        font-size:1.4rem;
+    }
+
+    .footer-social{
+        justify-content:center;
+    }
+
+}

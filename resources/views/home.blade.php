@@ -81,93 +81,71 @@
     <div class="container">
 
         <div class="text-center mb-5">
-            <h2 class="section-title">Featured Products</h2>
+
+            <h2 class="section-title">
+                Featured Products
+            </h2>
+
             <p class="section-subtitle">
                 Handpicked premium gadgets for you.
             </p>
+
         </div>
 
         <div class="row g-4">
 
-            <!-- Product 1 -->
+            @forelse($featuredProducts as $product)
 
-            <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6">
 
-                <div class="product-card">
+                    <div class="product-card">
 
-                    <img src="{{ asset('images/products/laptop.png') }}" class="img-fluid" alt="Laptop">
+                        <a href="{{ route('products.show', $product->slug) }}">
 
-                    <h5>MacBook Style Laptop</h5>
+                            <img
+                                src="{{ asset($product->main_image) }}"
+                                class="img-fluid"
+                                alt="{{ $product->name }}">
 
-                    <p class="price">$999</p>
+                        </a>
 
-                    <button class="btn-techhub w-100">
-                        Add to Cart
-                    </button>
+                        <h5 class="mt-3">
 
-                </div>
+                            {{ $product->name }}
 
-            </div>
+                        </h5>
 
-            <!-- Product 2 -->
+                        <p class="price">
 
-            <div class="col-lg-3 col-md-6">
+                            ৳ {{ number_format($product->price, 2) }}
 
-                <div class="product-card">
+                        </p>
 
-                    <img src="{{ asset('images/products/headphone.png') }}" class="img-fluid" alt="Headphone">
+                        <a
+                            href="{{ route('products.show', $product->slug) }}"
+                            class="btn-techhub w-100 text-center d-block text-decoration-none">
 
-                    <h5>Wireless Headphones</h5>
+                            View Details
 
-                    <p class="price">$199</p>
+                        </a>
 
-                    <button class="btn-techhub w-100">
-                        Add to Cart
-                    </button>
-
-                </div>
-
-            </div>
-
-            <!-- Product 3 -->
-
-            <div class="col-lg-3 col-md-6">
-
-                <div class="product-card">
-
-                    <img src="{{ asset('images/products/keyboard.png') }}" class="img-fluid" alt="Keyboard">
-
-                    <h5>Mechanical Keyboard</h5>
-
-                    <p class="price">$129</p>
-
-                    <button class="btn-techhub w-100">
-                        Add to Cart
-                    </button>
+                    </div>
 
                 </div>
 
-            </div>
+            @empty
 
-            <!-- Product 4 -->
+                <div class="col-12">
 
-            <div class="col-lg-3 col-md-6">
+                    <div class="alert alert-warning text-center">
 
-                <div class="product-card">
+                        No featured products found.
 
-                    <img src="{{ asset('images/products/watch.png') }}" class="img-fluid" alt="Watch">
-
-                    <h5>Smart Watch</h5>
-
-                    <p class="price">$249</p>
-
-                    <button class="btn-techhub w-100">
-                        Add to Cart
-                    </button>
+                    </div>
 
                 </div>
 
-            </div>
+            @endforelse
 
         </div>
 
