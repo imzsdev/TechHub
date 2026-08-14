@@ -777,3 +777,602 @@ body{
 .products-page .product-card .btn-techhub{
     margin-top: auto;
 }
+
+/* =========================================================
+   CHECKOUT PAGE
+   ========================================================= */
+
+.checkout-section {
+    background: #0b0b0b;
+    color: #ffffff;
+    padding: 60px 0 80px;
+    min-height: 700px;
+}
+
+.checkout-section .section-title {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.checkout-section .section-subtitle {
+    color: #9ca3af;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 55px;
+}
+
+
+/* =========================
+   CHECKOUT CARD
+   ========================= */
+
+.checkout-card {
+    background: #151515;
+    border: 1px solid #2d2d2d;
+    border-radius: 18px;
+    padding: 30px;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.checkout-title {
+    color: #ffffff !important;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   FORM LABELS
+   ========================= */
+
+.checkout-card label {
+    color: #ffffff !important;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+}
+
+
+/* =========================
+   INPUTS
+   ========================= */
+
+.checkout-input {
+    width: 100%;
+    background: #1b1b1b !important;
+    color: #ffffff !important;
+    border: 1px solid #353535 !important;
+    border-radius: 10px;
+    padding: 13px 15px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.checkout-input::placeholder {
+    color: #777777 !important;
+}
+
+.checkout-input:focus {
+    background: #1b1b1b !important;
+    color: #ffffff !important;
+    border-color: #ff3030 !important;
+    box-shadow: 0 0 0 3px rgba(255, 48, 48, 0.12);
+}
+
+
+/* =========================
+   TEXTAREA
+   ========================= */
+
+textarea.checkout-input {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* =========================
+   ORDER SUMMARY
+   ========================= */
+
+.checkout-summary {
+    background: #151515;
+    border: 1px solid #2d2d2d;
+    border-radius: 18px;
+    padding: 30px;
+    color: #ffffff;
+}
+
+.checkout-summary h3,
+.checkout-summary h4,
+.checkout-summary h5 {
+    color: #ffffff !important;
+}
+
+.checkout-products {
+    margin-bottom: 20px;
+}
+
+.checkout-product {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #2d2d2d;
+}
+
+.checkout-product:last-child {
+    border-bottom: none;
+}
+
+.checkout-product img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    background: #0f0f0f;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.checkout-product-info {
+    flex: 1;
+}
+
+.checkout-product-info h6,
+.checkout-product-info strong {
+    color: #ffffff !important;
+    margin-bottom: 5px;
+}
+
+.checkout-product-info p,
+.checkout-product-info span {
+    color: #a0a0a0 !important;
+}
+
+
+/* =========================
+   SUMMARY ROWS
+   ========================= */
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    color: #bdbdbd !important;
+    font-size: 15px;
+}
+
+.summary-row strong,
+.summary-row span {
+    color: #ffffff !important;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 20px;
+    border-top: 1px solid #353535;
+    color: #ffffff !important;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.summary-total strong,
+.summary-total span {
+    color: #ff3030 !important;
+}
+
+
+/* =========================
+   PLACE ORDER BUTTON
+   ========================= */
+
+.checkout-summary .btn-techhub {
+    width: 100%;
+    border: none;
+    margin-top: 25px;
+    padding: 14px 20px;
+    border-radius: 30px;
+    background: #ff3030;
+    color: #ffffff !important;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.checkout-summary .btn-techhub:hover {
+    background: #e51f1f;
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   CHECKOUT RESPONSIVE
+   ========================= */
+
+@media (max-width: 991px) {
+
+    .checkout-section {
+        padding: 45px 20px 60px;
+    }
+
+    .checkout-section .section-title {
+        font-size: 38px;
+    }
+
+    .checkout-card,
+    .checkout-summary {
+        padding: 25px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .checkout-section .section-title {
+        font-size: 32px;
+    }
+
+    .checkout-section .section-subtitle {
+        font-size: 16px;
+        margin-bottom: 35px;
+    }
+
+    .checkout-card,
+    .checkout-summary {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .checkout-title {
+        font-size: 24px;
+    }
+}
+
+/* =========================================================
+   CHECKOUT SUCCESS PAGE
+   ========================================================= */
+
+.checkout-success-section {
+    min-height: 700px;
+    background: #0b0b0b;
+    color: #ffffff;
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================
+   SUCCESS CARD
+   ========================= */
+
+.checkout-success-card {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 55px 45px;
+    background: #151515;
+    border: 1px solid #2d2d2d;
+    border-radius: 22px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   SUCCESS ICON
+   ========================= */
+
+.success-icon {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #ff3030;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 42px;
+
+    box-shadow: 0 0 30px rgba(255, 48, 48, 0.25);
+}
+
+.success-icon i {
+    line-height: 1;
+}
+
+
+/* =========================
+   SUCCESS TITLE
+   ========================= */
+
+.success-title {
+    margin-top: 28px;
+    margin-bottom: 12px;
+
+    color: #ffffff !important;
+
+    font-size: 42px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   SUCCESS TEXT
+   ========================= */
+
+.success-text {
+    max-width: 650px;
+    margin: 0 auto;
+
+    color: #a7a7a7 !important;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   ORDER NUMBER
+   ========================= */
+
+.order-number-box {
+    max-width: 400px;
+    margin: 30px auto 0;
+
+    padding: 18px 25px;
+
+    background: #101010;
+    border: 1px solid #333333;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.order-number-box span {
+    color: #9b9b9b !important;
+    font-size: 15px;
+}
+
+.order-number-box strong {
+    color: #ffffff !important;
+    font-size: 18px;
+}
+
+
+/* =========================
+   ORDER INFORMATION
+   ========================= */
+
+.order-success-info {
+    max-width: 650px;
+    margin: 30px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    border: 1px solid #2d2d2d;
+    border-radius: 14px;
+    overflow: hidden;
+
+    background: #101010;
+}
+
+
+.success-info-item {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    border-bottom: 1px solid #2d2d2d;
+}
+
+
+.success-info-item:nth-child(odd) {
+    border-right: 1px solid #2d2d2d;
+}
+
+
+.success-info-item:nth-child(3),
+.success-info-item:nth-child(4) {
+    border-bottom: none;
+}
+
+
+.success-info-item span {
+    color: #8f8f8f !important;
+    font-size: 14px;
+}
+
+
+.success-info-item strong {
+    color: #ffffff !important;
+    font-size: 17px;
+}
+
+
+/* =========================
+   TOTAL
+   ========================= */
+
+.success-info-item .success-total {
+    color: #ff3030 !important;
+}
+
+
+/* =========================
+   ORDER STATUS
+   ========================= */
+
+.success-info-item .success-status {
+    color: #22c55e !important;
+}
+
+
+/* =========================
+   ACTION BUTTONS
+   ========================= */
+
+.success-actions {
+    margin-top: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.success-actions .btn-techhub {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 210px;
+    padding: 14px 25px;
+
+    border-radius: 30px;
+
+    background: #ff3030;
+    color: #ffffff !important;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+
+.success-actions .btn-techhub:hover {
+    background: #e51f1f;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   OUTLINE BUTTON
+   ========================= */
+
+.success-actions .btn-outline-techhub {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 180px;
+    padding: 13px 25px;
+
+    border: 1px solid #444444;
+    border-radius: 30px;
+
+    background: transparent;
+    color: #ffffff !important;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+}
+
+
+.success-actions .btn-outline-techhub:hover {
+    border-color: #ffffff;
+    background: #ffffff;
+    color: #111111 !important;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .checkout-success-section {
+        padding: 55px 15px;
+    }
+
+    .checkout-success-card {
+        padding: 40px 25px;
+        border-radius: 18px;
+    }
+
+    .success-title {
+        font-size: 32px;
+    }
+
+    .success-text {
+        font-size: 15px;
+    }
+
+    .order-success-info {
+        grid-template-columns: 1fr;
+    }
+
+    .success-info-item:nth-child(odd) {
+        border-right: none;
+    }
+
+    .success-info-item:nth-child(3) {
+        border-bottom: 1px solid #2d2d2d;
+    }
+
+    .success-info-item:last-child {
+        border-bottom: none;
+    }
+
+    .success-actions {
+        flex-direction: column;
+    }
+
+    .success-actions .btn-techhub,
+    .success-actions .btn-outline-techhub {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .checkout-success-card {
+        padding: 35px 18px;
+    }
+
+    .success-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 34px;
+    }
+
+    .success-title {
+        font-size: 27px;
+    }
+
+    .order-number-box {
+        padding: 15px;
+        flex-direction: column;
+        gap: 3px;
+    }
+}

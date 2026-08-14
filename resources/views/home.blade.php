@@ -110,24 +110,52 @@
                         </a>
 
                         <h5 class="mt-3">
-
                             {{ $product->name }}
-
                         </h5>
 
                         <p class="price">
-
                             ৳ {{ number_format($product->price, 2) }}
-
                         </p>
 
-                        <a
-                            href="{{ route('products.show', $product->slug) }}"
-                            class="btn-techhub w-100 text-center d-block text-decoration-none">
+                        <!-- Product Actions -->
 
-                            View Details
+                        <div class="d-grid gap-2">
 
-                        </a>
+                            <!-- View Details -->
+
+                            <a
+                                href="{{ route('products.show', $product->slug) }}"
+                                class="btn-techhub text-decoration-none text-center">
+
+                                View Details
+
+                            </a>
+
+                            <!-- Add To Cart -->
+
+                            <form
+                                action="{{ route('cart.add') }}"
+                                method="POST">
+
+                                @csrf
+
+                                <input
+                                    type="hidden"
+                                    name="product_id"
+                                    value="{{ $product->id }}">
+
+                                <button
+                                    type="submit"
+                                    class="btn-outline-techhub w-100">
+
+                                    <i class="bi bi-cart-plus"></i>
+                                    Add to Cart
+
+                                </button>
+
+                            </form>
+
+                        </div>
 
                     </div>
 
@@ -135,17 +163,17 @@
 
             @empty
 
-                <div class="col-12">
+            <div class="col-12">
 
-                    <div class="alert alert-warning text-center">
+                <div class="alert alert-warning text-center">
 
-                        No featured products found.
-
-                    </div>
+                    No featured products found.
 
                 </div>
 
-            @endforelse
+            </div>
+
+          @endforelse
 
         </div>
 

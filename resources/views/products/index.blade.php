@@ -186,7 +186,7 @@
 
                                     </h4>
 
-                                    <div class="d-grid">
+                                    <div class="d-grid gap-2">
 
                                         <a
                                             href="{{ route('products.show', $product->slug) }}"
@@ -195,6 +195,28 @@
                                             View Details
 
                                         </a>
+
+                                        <form
+                                            action="{{ route('cart.add') }}"
+                                            method="POST">
+
+                                            @csrf
+
+                                            <input
+                                                type="hidden"
+                                                name="product_id"
+                                                value="{{ $product->id }}">
+
+                                            <button
+                                                type="submit"
+                                                class="btn-outline-techhub w-100">
+
+                                                <i class="bi bi-cart-plus"></i>
+                                                Add to Cart
+
+                                            </button>
+
+                                        </form>
 
                                     </div>
 

@@ -171,11 +171,13 @@
 
             <div class="d-flex justify-content-end mt-4">
 
-                <button class="btn-techhub">
+                <a
+                    href="{{ route('checkout.index') }}"
+                    class="btn-techhub text-decoration-none">
 
                     Proceed to Checkout
 
-                </button>
+                </a>
 
             </div>
 

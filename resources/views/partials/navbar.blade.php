@@ -42,6 +42,24 @@
                 </li>
 
             </ul>
+            
+            <div class="d-flex align-items-center">
+
+                <a href="{{ route('cart.index') }}"
+                   class="btn btn-outline-light position-relative">
+
+                    <i class="bi bi-cart3"></i>
+
+                    <span
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                        {{ count(session('cart', [])) }}
+
+                    </span>
+
+                </a>
+
+            </div>
 
         </div>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,23 @@ Route::get('/cart/decrease/{id}', [CartController::class, 'decrease'])
 Route::get('/cart/remove/{id}', [CartController::class, 'remove'])
     ->name('cart.remove');
 
+/*
+|--------------------------------------------------------------------------
+| Checkout
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/checkout', [CheckoutController::class, 'index'])
+    ->middleware('auth')
+    ->name('checkout.index');
+
+Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])
+    ->middleware('auth')
+    ->name('checkout.place');
+
+Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])
+    ->middleware('auth')
+    ->name('checkout.success');
 /*
 |--------------------------------------------------------------------------
 | Contact
