@@ -2,6 +2,21 @@
 
 @section('content')
 
+@php
+
+    $isWishlisted = false;
+
+    if (auth()->check()) {
+
+        $isWishlisted = auth()->user()
+            ->wishlists()
+            ->where('product_id', $product->id)
+            ->exists();
+
+    }
+
+@endphp
+
 <section class="product-details-page py-5">
 
     <div class="container">
@@ -50,6 +65,7 @@
 
             </div>
 
+
             <!-- Product Information -->
 
             <div class="col-lg-6">
@@ -60,11 +76,13 @@
 
                 </span>
 
+
                 <h1 class="text-white fw-bold mb-3">
 
                     {{ $product->name }}
 
                 </h1>
+
 
                 <div class="mb-3">
 
@@ -82,17 +100,20 @@
 
                 </div>
 
+
                 <h2 class="text-danger fw-bold mb-4">
 
                     ৳ {{ number_format($product->price, 2) }}
 
                 </h2>
 
+
                 <p class="text-secondary product-description">
 
                     {{ $product->description }}
 
                 </p>
+
 
                 <div class="mt-4">
 
@@ -115,6 +136,7 @@
                     @endif
 
                 </div>
+
 
                 <!-- Quantity -->
 
@@ -158,11 +180,17 @@
 
                 </div>
 
+
                 <!-- Buttons -->
 
                 <div class="d-flex flex-wrap gap-3 mt-5">
 
-                    <form action="{{ route('cart.add') }}" method="POST">
+
+                    <!-- Add to Cart -->
+
+                    <form
+                        action="{{ route('cart.add') }}"
+                        method="POST">
 
                         @csrf
 
@@ -183,48 +211,119 @@
 
                     </form>
 
-                    <button
-                        type="button"
-                        id="wishlistBtn"
-                        class="wishlist-btn">
 
-                        <span id="wishlistIcon">♡</span>
+                    <!-- Wishlist -->
 
-                        Wishlist
+                    @auth
 
-                    </button>
+                        @if($isWishlisted)
 
-                </div>              
-                
+                            <!-- Remove from Wishlist -->
+
+                            <form
+                                action="{{ route('wishlist.destroy', $product) }}"
+                                method="POST">
+
+                                @csrf
+
+                                @method('DELETE')
+
+                                <button
+                                    type="submit"
+                                    class="wishlist-btn active">
+
+                                    <span id="wishlistIcon">♥</span>
+
+                                    Remove Wishlist
+
+                                </button>
+
+                            </form>
+
+                        @else
+
+                            <!-- Add to Wishlist -->
+
+                            <form
+                                action="{{ route('wishlist.store', $product) }}"
+                                method="POST">
+
+                                @csrf
+
+                                <button
+                                    type="submit"
+                                    class="wishlist-btn">
+
+                                    <span id="wishlistIcon">♡</span>
+
+                                    Wishlist
+
+                                </button>
+
+                            </form>
+
+                        @endif
+
+                    @else
+
+                        <!-- Login Required -->
+
+                        <a
+                            href="{{ route('login') }}"
+                            class="wishlist-btn text-decoration-none">
+
+                            <span id="wishlistIcon">♡</span>
+
+                            Wishlist
+
+                        </a>
+
+                    @endauth
+
+
+                </div>
+
+
                 <!-- Delivery Information -->
 
                 <div class="delivery-card mt-5">
 
                     <h5 class="text-white mb-3">
+
                         Delivery Information
+
                     </h5>
 
                     <ul class="list-unstyled text-secondary mb-0">
 
                         <li class="mb-2">
+
                             🚚 Delivery within 2–5 business days
+
                         </li>
 
                         <li class="mb-2">
+
                             💳 Cash on Delivery Available
+
                         </li>
 
                         <li class="mb-2">
+
                             🔄 7 Days Replacement Warranty
+
                         </li>
 
                         <li>
+
                             ✔ 100% Original Product
+
                         </li>
 
                     </ul>
 
                 </div>
+
 
                 <!-- Product Features -->
 
@@ -253,6 +352,7 @@
                     </ul>
 
                 </div>
+
 
                 <!-- Rating Summary -->
 
@@ -290,6 +390,7 @@
 
                     </div>
 
+
                     <div class="rating-bars">
 
                         @php
@@ -309,6 +410,7 @@
                             ];
 
                         @endphp
+
 
                         @foreach($ratings as $rate)
 
@@ -334,6 +436,7 @@
                     </div>
 
                 </div>
+
 
             </div>
 

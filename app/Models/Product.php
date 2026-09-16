@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -41,4 +42,12 @@ class Product extends Model
         'is_flash_sale' => 'boolean',
         'is_active' => 'boolean',
     ];
+
+    /**
+     * Get the product's wishlists.
+     */
+    public function wishlists(): HasMany
+    {
+        return $this->hasMany(Wishlist::class);
+    }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,25 @@ Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])
 Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])
     ->middleware('auth')
     ->name('checkout.success');
+
+/*
+|--------------------------------------------------------------------------
+| Wishlist
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/wishlist', [WishlistController::class, 'index'])
+        ->name('wishlist.index');
+
+    Route::post('/wishlist/{product}', [WishlistController::class, 'store'])
+        ->name('wishlist.store');
+
+    Route::delete('/wishlist/{product}', [WishlistController::class, 'destroy'])
+        ->name('wishlist.destroy');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Contact
