@@ -20,6 +20,8 @@ class ProductController extends Controller
 
         $maxPrice = $request->input('max_price');
 
+        $sort = $request->input('sort', 'newest');
+
 
         $products = Product::where('is_active', true)
 
@@ -76,18 +78,77 @@ class ProductController extends Controller
 
                 });
 
-            })
+            });
 
-            ->latest()
-            ->get();
 
+        /*
+        |--------------------------------------------------------------------------
+        | Sorting
+        |--------------------------------------------------------------------------
+        */
+
+        switch ($sort) {
+
+            case 'price_low':
+                $products->orderByRaw(
+                    'COALESCE(sale_price, price) ASC'
+                );
+                break;
+
+
+            case 'price_high':
+                $products->orderByRaw(
+                    'COALESCE(sale_price, price) DESC'
+                );
+                break;
+
+
+            case 'best_selling':
+
+                /*
+                 * Sales/order quantity tracking will be added
+                 * in the backend phase.
+                 *
+                 * For now, products with higher review counts
+                 * appear first as a temporary storefront signal.
+                 */
+
+                $products->orderByDesc('review_count')
+                    ->orderByDesc('rating');
+
+                break;
+
+
+            case 'newest':
+            default:
+                $products->latest();
+                break;
+
+        }
+
+
+        $products = $products->get();
+
+
+        $wishlistProductIds = [];
+
+        if (auth()->check()) {
+
+            $wishlistProductIds = auth()
+                ->user()
+                ->wishlists()
+                ->pluck('product_id')
+                ->toArray();
+
+        }
 
         return view('products.index', compact(
             'products',
             'search',
             'category',
             'brand',
-            'maxPrice'
+            'maxPrice',
+            'sort'
         ));
     }
 

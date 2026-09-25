@@ -173,7 +173,7 @@
 
             </div>
 
-          @endforelse
+            @endforelse
 
         </div>
 

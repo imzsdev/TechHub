@@ -38,186 +38,208 @@
                     </h4>
 
 
-                    <!-- Category -->
+                    <form
+                        action="{{ route('products') }}"
+                        method="GET">
 
-                    <h6 class="filter-title">
-                        Category
-                    </h6>
 
-                    <div class="form-check mb-2">
+                        {{-- Keep Search --}}
+
+                        @if(!empty($search))
+
+                            <input
+                                type="hidden"
+                                name="search"
+                                value="{{ $search }}">
+
+                        @endif
+
+
+                        {{-- Category --}}
+
+                        <h6 class="filter-title">
+                            Category
+                        </h6>
+
+
+                        @php
+                           $categories = [
+                                'Laptops',
+                                'Keyboards',
+                                'Headphones',
+                                'Smart Watches'
+                            ];
+                        @endphp
+
+
+                        @foreach($categories as $item)
+
+                            <div class="form-check mb-2">
+
+                                <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="category"
+                                    id="category{{ $loop->index }}"
+                                    value="{{ $item }}"
+                                    {{ ($category ?? '') === $item ? 'checked' : '' }}>
+
+                                <label
+                                    class="form-check-label"
+                                    for="category{{ $loop->index }}">
+
+                                    {{ $item }}
+
+                                </label>
+
+                            </div>
+
+                        @endforeach
+
+
+                        <div class="form-check mb-4">
+
+                            <input
+                               class="form-check-input"
+                               type="radio"
+                               name="category"
+                               id="categoryAll"
+                               value=""
+                               {{ empty($category) ? 'checked' : '' }}>
+
+                            <label
+                                class="form-check-label"
+                                 for="categoryAll">
+
+                                All Categories
+
+                            </label>
+
+                        </div>
+
+
+                        <hr>
+
+
+                        {{-- Brand --}}
+
+                        <h6 class="filter-title mt-4">
+                            Brand
+                        </h6>
+
+
+                        <select
+                            class="form-select sort-select"
+                            name="brand">
+
+                            <option value="">
+                                All Brands
+                            </option>
+
+                            <option
+                                value="Apple"
+                                {{ ($brand ?? '') === 'Apple' ? 'selected' : '' }}>
+
+                                Apple
+
+                            </option>
+
+                            <option
+                                value="ASUS"
+                                {{ ($brand ?? '') === 'ASUS' ? 'selected' : '' }}>
+
+                                ASUS
+
+                            </option>
+
+                            <option
+                                value="Logitech"
+                                {{ ($brand ?? '') === 'Logitech' ? 'selected' : '' }}>
+
+                                Logitech
+
+                            </option>
+
+                            <option
+                                value="MSI"
+                                {{ ($brand ?? '') === 'MSI' ? 'selected' : '' }}>
+
+                                MSI
+
+                            </option>
+
+                            <option
+                                value="Sony"
+                                {{ ($brand ?? '') === 'Sony' ? 'selected' : '' }}>
+
+                                Sony
+
+                            </option>
+
+                        </select>
+
+
+                        <hr>
+
+
+                        {{-- Price --}}
+
+                        <h6 class="filter-title mt-4">
+                            Maximum Price
+                        </h6>
+
 
                         <input
-                            class="form-check-input"
-                            type="checkbox"
-                            id="categoryLaptop"
-                            value="Laptops">
-
-                        <label
-                            class="form-check-label"
-                            for="categoryLaptop">
-
-                            Laptops
-
-                        </label>
-
-                    </div>
+                            type="range"
+                            class="form-range"
+                            id="priceFilter"
+                            name="max_price"
+                            min="0"
+                            max="100000"
+                            step="500"
+                            value="{{ $maxPrice ?? 100000 }}">
 
 
-                    <div class="form-check mb-2">
+                        <div class="d-flex justify-content-between">
 
-                        <input
-                            class="form-check-input"
-                            type="checkbox"
-                            id="categoryKeyboard"
-                            value="Keyboards">
+                            <small class="text-secondary">
+                                ৳ 0
+                            </small>
 
-                        <label
-                            class="form-check-label"
-                            for="categoryKeyboard">
+                            <small
+                               class="text-secondary"
+                               id="priceValue">
 
-                            Keyboards
+                               ৳ {{ number_format($maxPrice ?? 100000) }}
 
-                        </label>
+                            </small>
 
-                    </div>
+                        </div>
 
 
-                    <div class="form-check mb-2">
+                        {{-- Apply --}}
 
-                        <input
-                            class="form-check-input"
-                            type="checkbox"
-                            id="categoryHeadphone"
-                            value="Headphones">
+                        <button
+                            type="submit"
+                            class="btn-techhub w-100 mt-4">
 
-                        <label
-                            class="form-check-label"
-                            for="categoryHeadphone">
+                            Apply Filters
 
-                            Headphones
-
-                        </label>
-
-                    </div>
+                        </button>
 
 
-                    <div class="form-check mb-4">
-
-                        <input
-                            class="form-check-input"
-                            type="checkbox"
-                            id="categoryWatch"
-                            value="Smart Watches">
-
-                        <label
-                            class="form-check-label"
-                            for="categoryWatch">
-
-                            Smart Watches
-
-                        </label>
-
-                    </div>
+                    </form>
 
 
-                    <hr>
+                    {{-- Reset --}}
 
-
-                    <!-- Brand -->
-
-                    <h6 class="filter-title mt-4">
-                        Brand
-                    </h6>
-
-                    <select
-                        class="form-select sort-select"
-                        id="brandFilter">
-
-                        <option value="">
-                            All Brands
-                        </option>
-
-                        <option value="Apple">
-                            Apple
-                        </option>
-
-                        <option value="ASUS">
-                            ASUS
-                        </option>
-
-                        <option value="Logitech">
-                            Logitech
-                        </option>
-
-                        <option value="MSI">
-                            MSI
-                        </option>
-
-                        <option value="Sony">
-                            Sony
-                        </option>
-
-                    </select>
-
-
-                    <hr>
-
-
-                    <!-- Price -->
-
-                    <h6 class="filter-title mt-4">
-                        Price Range
-                    </h6>
-
-                    <input
-                        type="range"
-                        class="form-range"
-                        id="priceFilter"
-                        min="0"
-                        max="100000"
-                        step="500"
-                        value="100000">
-
-
-                    <div class="d-flex justify-content-between">
-
-                        <small class="text-secondary">
-                            ৳ 0
-                        </small>
-
-                        <small
-                            class="text-secondary"
-                            id="priceValue">
-
-                            ৳ 100,000
-
-                        </small>
-
-                    </div>
-
-
-                    <!-- Apply -->
-
-                    <button
-                        type="button"
-                        class="btn-techhub w-100 mt-4"
-                        id="applyFiltersBtn">
-
-                        Apply Filters
-
-                    </button>
-
-
-                    <!-- Reset -->
-
-                    <button
-                        type="button"
-                        class="btn btn-outline-light w-100 mt-2"
-                        id="resetFiltersBtn">
+                    <a
+                        href="{{ route('products') }}"
+                        class="btn btn-outline-light w-100 mt-2">
 
                         Reset Filters
 
-                    </button>
+                    </a>
 
                 </div>
 
@@ -305,27 +327,101 @@
 
                         <div class="col-md-4">
 
-                            <select
-                                class="form-select sort-select"
-                                id="productSort">
+                            <form
+                                action="{{ route('products') }}"
+                                method="GET">
 
-                                <option value="newest">
-                                    Newest
-                                </option>
+                                {{-- Keep Search --}}
 
-                                <option value="price_low">
-                                    Price: Low to High
-                                </option>
+                                @if(!empty($search))
 
-                                <option value="price_high">
-                                    Price: High to Low
-                                </option>
+                                    <input
+                                        type="hidden"
+                                        name="search"
+                                        value="{{ $search }}">
 
-                                <option value="rating">
-                                    Highest Rated
-                                </option>
+                                @endif
 
-                            </select>
+
+                                {{-- Keep Category --}}
+
+                                @if(!empty($category))
+
+                                    <input
+                                        type="hidden"
+                                        name="category"
+                                        value="{{ $category }}">
+
+                                @endif
+
+
+                                {{-- Keep Brand --}}
+
+                                @if(!empty($brand))
+
+                                    <input
+                                        type="hidden"
+                                        name="brand"
+                                        value="{{ $brand }}">
+
+                                @endif
+
+
+                                {{-- Keep Maximum Price --}}
+
+                                @if(!empty($maxPrice))
+
+                                    <input
+                                        type="hidden"
+                                        name="max_price"
+                                        value="{{ $maxPrice }}">
+
+                                @endif
+
+
+                                <select
+                                    name="sort"
+                                    class="form-select sort-select"
+                                    onchange="this.form.submit()">
+
+                                    <option
+                                        value="newest"
+                                        {{ ($sort ?? 'newest') === 'newest' ? 'selected' : '' }}>
+
+                                        Newest
+
+                                    </option>
+
+
+                                    <option
+                                        value="price_low"
+                                        {{ ($sort ?? '') === 'price_low' ? 'selected' : '' }}>
+
+                                        Price: Low to High
+
+                                    </option>
+
+
+                                    <option
+                                        value="price_high"
+                                        {{ ($sort ?? '') === 'price_high' ? 'selected' : '' }}>
+
+                                        Price: High to Low
+
+                                    </option>
+
+
+                                    <option
+                                        value="best_selling"
+                                        {{ ($sort ?? '') === 'best_selling' ? 'selected' : '' }}>
+
+                                        Best Selling
+
+                                    </option>
+
+                                </select>
+
+                            </form>
 
                         </div>
 
@@ -508,6 +604,62 @@
 
                                     <div class="d-grid gap-2">
 
+                                        {{-- Wishlist --}}
+
+                                        @auth
+
+                                            @if(in_array($product->id, $wishlistProductIds ?? []))
+
+                                                <form
+                                                    action="{{ route('wishlist.destroy', $product) }}"
+                                                    method="POST">
+
+                                                    @csrf
+
+                                                    @method('DELETE')
+
+                                                    <button
+                                                        type="submit"
+                                                        class="btn btn-danger w-100">
+
+                                                        ❤️ Remove from Wishlist
+
+                                                    </button>
+
+                                                </form>
+
+                                            @else
+
+                                                <form
+                                                    action="{{ route('wishlist.store', $product) }}"
+                                                    method="POST">
+
+                                                    @csrf
+
+                                                    <button
+                                                        type="submit"
+                                                        class="btn-outline-techhub w-100">
+
+                                                        ♡ Add to Wishlist
+
+                                                    </button>
+
+                                                </form>
+
+                                            @endif
+
+                                        @else
+
+                                            <a
+                                                href="{{ route('login') }}"
+                                                class="btn-outline-techhub text-decoration-none text-center w-100">
+
+                                                ♡ Add to Wishlist
+
+                                            </a>
+
+                                        @endauth
+
 
                                         <!-- Details -->
 
@@ -626,18 +778,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             priceValue.textContent =
                 '৳ ' + Number(this.value).toLocaleString('en-BD');
-
-        });
-
-    }
-
-
-    if (resetButton) {
-
-        resetButton.addEventListener('click', function () {
-
-            window.location.href =
-                "{{ route('products') }}";
 
         });
 
