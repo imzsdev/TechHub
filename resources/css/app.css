@@ -1376,3 +1376,1065 @@ textarea.checkout-input {
         gap: 3px;
     }
 }
+
+/* =========================================================
+   CHECKOUT LAYOUT FIX
+   Step 26.9.1
+   ========================================================= */
+
+.checkout-section {
+    min-height: auto;
+    height: auto;
+    background: #0b0b0b;
+    padding-bottom: 80px;
+}
+
+.checkout-section .checkout-card {
+    height: auto;
+    min-height: 0;
+}
+
+.checkout-section .checkout-left-column,
+.checkout-section .checkout-right-column {
+    height: auto;
+}
+
+.checkout-section .checkout-card-body {
+    height: auto;
+    min-height: 0;
+}
+
+.checkout-section .checkout-summary {
+    height: auto;
+    min-height: 0;
+}
+
+/* Prevent form sections from stretching unnecessarily */
+
+.checkout-section .checkout-card,
+.checkout-section .checkout-summary,
+.checkout-section .payment-card,
+.checkout-section .order-notes-card {
+    align-self: flex-start;
+}
+
+/* Delivery / Payment / Notes cards */
+
+.checkout-section .delivery-card,
+.checkout-section .payment-method-card,
+.checkout-section .order-notes-card {
+    height: auto;
+    min-height: 0;
+}
+
+/* Textarea should have natural height */
+
+.checkout-section textarea {
+    min-height: 120px;
+}
+
+/* Keep checkout form fields properly aligned */
+
+.checkout-section .row {
+    height: auto;
+}
+
+.checkout-section .form-control,
+.checkout-section .form-select {
+    height: auto;
+}
+
+/* =========================================================
+   END CHECKOUT LAYOUT FIX
+   ========================================================= */
+
+   /* =========================================================
+   CHECKOUT 2-COLUMN ALIGNMENT
+   Step 26.9.2
+   ========================================================= */
+
+.checkout-section {
+    background: #0b0b0b;
+}
+
+/* Main checkout columns */
+
+.checkout-section .row {
+    align-items: flex-start;
+}
+
+/* Left side cards */
+
+.checkout-section .checkout-card {
+    margin-bottom: 18px;
+}
+
+/* Right side order summary */
+
+.checkout-section .checkout-summary {
+    position: sticky;
+    top: 25px;
+}
+
+/* Keep summary compact */
+
+.checkout-section .summary-row {
+    margin-bottom: 10px;
+}
+
+/* Checkout buttons */
+
+.checkout-section .checkout-summary .btn-techhub,
+.checkout-section .checkout-summary .btn-outline-techhub {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+/* Payment options */
+
+.checkout-section .payment-option {
+    height: auto;
+    min-height: 0;
+}
+
+/* Order notes */
+
+.checkout-section textarea {
+    resize: vertical;
+}
+
+/* Desktop spacing */
+
+@media (min-width: 992px) {
+
+    .checkout-section .checkout-summary {
+        margin-left: 0;
+    }
+
+}
+
+/* Tablet / Mobile */
+
+@media (max-width: 991px) {
+
+    .checkout-section .checkout-summary {
+        position: static;
+        margin-top: 18px;
+    }
+
+}
+
+/* =========================================================
+   CHECKOUT RESPONSIVE / MOBILE FIX
+   Step 26.9.3
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .checkout-section {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 50px;
+    }
+
+    .checkout-section .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Header */
+
+    .checkout-section h1 {
+        font-size: 38px;
+    }
+
+    .checkout-section .checkout-card,
+    .checkout-section .checkout-summary {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Form rows */
+
+    .checkout-section .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .checkout-section .row > [class*="col-"] {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Input fields */
+
+    .checkout-section .form-control,
+    .checkout-section .form-select,
+    .checkout-section textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Summary */
+
+    .checkout-section .checkout-summary {
+        position: static;
+        top: auto;
+        margin-top: 18px;
+    }
+
+    /* Buttons */
+
+    .checkout-section .checkout-summary .btn-techhub,
+    .checkout-section .checkout-summary .btn-outline-techhub {
+        width: 100%;
+    }
+
+    /* Payment options */
+
+    .checkout-section .payment-option {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+}
+
+/* Small phones */
+
+@media (max-width: 480px) {
+
+    .checkout-section {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .checkout-section h1 {
+        font-size: 32px;
+    }
+
+    .checkout-section .checkout-card,
+    .checkout-section .checkout-summary {
+        padding: 18px;
+    }
+
+}
+
+/* =========================================================
+   CHAPTER 26.9.4.1
+   GLOBAL UI CONSISTENCY - BUTTONS
+   ========================================================= */
+
+.btn-techhub,
+.btn-outline-techhub,
+.add-cart-btn,
+.wishlist-btn {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+/* Primary TechHub Button */
+
+.btn-techhub {
+    border: 1px solid #ff2d2d;
+    cursor: pointer;
+    line-height: 1.2;
+}
+
+.btn-techhub:focus-visible {
+    outline: 2px solid #ff6b6b;
+    outline-offset: 3px;
+}
+
+/* Outline TechHub Button */
+
+.btn-outline-techhub {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .25);
+    cursor: pointer;
+    line-height: 1.2;
+}
+
+.btn-outline-techhub:hover {
+    border-color: #ff2d2d;
+    color: #fff;
+}
+
+.btn-outline-techhub:focus-visible {
+    outline: 2px solid #ff6b6b;
+    outline-offset: 3px;
+}
+
+/* Bootstrap Danger Button Consistency */
+
+.btn-danger {
+    border-radius: 12px;
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+}
+
+/* Bootstrap Outline Light */
+
+.btn-outline-light {
+    border-radius: 10px;
+    transition: .3s ease;
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-2px);
+}
+
+/* Disabled State */
+
+.btn-techhub:disabled,
+.btn-outline-techhub:disabled,
+.btn-danger:disabled,
+.btn-outline-light:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Mobile Button Safety */
+
+@media (max-width: 576px) {
+
+    .btn-techhub,
+    .btn-outline-techhub,
+    .add-cart-btn,
+    .wishlist-btn {
+        max-width: 100%;
+    }
+
+}
+
+/* =========================================================
+   CHAPTER 26.9.4.2
+   GLOBAL UI CONSISTENCY - FORMS & INPUTS
+   ========================================================= */
+
+.form-control,
+.form-select {
+    min-height: 46px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background-color .25s ease;
+}
+
+/* Text Inputs */
+
+.form-control {
+    background-color: rgba(255, 255, 255, .035);
+    border: 1px solid rgba(255, 255, 255, .16);
+    color: #fff;
+}
+
+/* Placeholder */
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, .42);
+}
+
+/* Select */
+
+.form-select {
+    background-color: rgba(255, 255, 255, .035);
+    border: 1px solid rgba(255, 255, 255, .16);
+    color: #fff;
+}
+
+/* Select option */
+
+.form-select option {
+    background-color: #151515;
+    color: #fff;
+}
+
+/* Focus */
+
+.form-control:focus,
+.form-select:focus {
+    background-color: rgba(255, 255, 255, .055);
+    border-color: #ff2d2d;
+    color: #fff;
+    box-shadow: 0 0 0 .2rem rgba(255, 45, 45, .12);
+    outline: none;
+}
+
+/* Textarea */
+
+textarea.form-control {
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* Labels */
+
+.form-label {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Required indicator */
+
+.form-label .required,
+.form-label.required::after {
+    color: #ff2d2d;
+}
+
+/* Checkbox & Radio */
+
+.form-check-input {
+    background-color: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .25);
+}
+
+.form-check-input:checked {
+    background-color: #ff2d2d;
+    border-color: #ff2d2d;
+}
+
+.form-check-input:focus {
+    border-color: #ff2d2d;
+    box-shadow: 0 0 0 .2rem rgba(255, 45, 45, .12);
+}
+
+/* Search Inputs */
+
+.search-input {
+    min-height: 46px;
+}
+
+/* Disabled Inputs */
+
+.form-control:disabled,
+.form-control[readonly],
+.form-select:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* Validation */
+
+.is-invalid {
+    border-color: #ff3b3b !important;
+}
+
+.invalid-feedback {
+    color: #ff7777;
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+    .form-control,
+    .form-select {
+        min-height: 44px;
+        font-size: 14px;
+    }
+
+    textarea.form-control {
+        min-height: 100px;
+    }
+
+}
+
+/* =========================================================
+   CHAPTER 26.9.4.3
+   GLOBAL UI CONSISTENCY - CARDS & SECTIONS
+   ========================================================= */
+
+:root {
+    --th-card-bg: #151515;
+    --th-card-border: rgba(255, 255, 255, .12);
+    --th-card-radius: 16px;
+    --th-card-shadow: 0 10px 35px rgba(0, 0, 0, .22);
+}
+
+
+/* =========================================================
+   GLOBAL CARD FOUNDATION
+   ========================================================= */
+
+.checkout-card,
+.product-card,
+.filter-card,
+.auth-card,
+.order-success-card,
+.checkout-success-card {
+    background: var(--th-card-bg);
+    border: 1px solid var(--th-card-border);
+    border-radius: var(--th-card-radius);
+    box-shadow: var(--th-card-shadow);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.checkout-card,
+.filter-card,
+.auth-card {
+    padding: 24px;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
+
+.product-card {
+    padding: 18px;
+    overflow: hidden;
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 45, 45, .35);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .28);
+}
+
+
+/* =========================================================
+   CHECKOUT CARD
+   ========================================================= */
+
+.checkout-card {
+    position: relative;
+}
+
+.checkout-card + .checkout-card {
+    margin-top: 24px;
+}
+
+
+/* =========================================================
+   CARD TITLES
+   ========================================================= */
+
+.checkout-title,
+.filter-card h4,
+.auth-card h2,
+.order-success-card h2 {
+    color: #fff;
+    font-weight: 700;
+}
+
+.checkout-title {
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   SECTION SPACING
+   ========================================================= */
+
+.products-page,
+.checkout-page,
+.auth-page,
+.checkout-success-section {
+    position: relative;
+}
+
+.products-page > .container,
+.checkout-page > .container {
+    position: relative;
+}
+
+
+/* =========================================================
+   FILTER CARD
+   ========================================================= */
+
+.filter-card {
+    height: fit-content;
+}
+
+.filter-card hr {
+    border-color: rgba(255, 255, 255, .10);
+    opacity: 1;
+}
+
+
+/* =========================================================
+   ORDER SUMMARY
+   ========================================================= */
+
+.order-summary,
+.checkout-summary {
+    background: rgba(255, 255, 255, .02);
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: 12px;
+}
+
+
+/* =========================================================
+   SUCCESS CARD
+   ========================================================= */
+
+.checkout-success-card,
+.order-success-card {
+    padding: 40px;
+}
+
+
+/* =========================================================
+   CARD RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .checkout-card,
+    .filter-card,
+    .auth-card {
+        padding: 20px;
+    }
+
+    .product-card {
+        padding: 16px;
+    }
+
+    .checkout-success-card,
+    .order-success-card {
+        padding: 28px 20px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    .checkout-card,
+    .filter-card,
+    .auth-card,
+    .product-card {
+        border-radius: 14px;
+    }
+
+    .checkout-card,
+    .filter-card,
+    .auth-card {
+        padding: 16px;
+    }
+
+    .checkout-success-card,
+    .order-success-card {
+        padding: 24px 16px;
+    }
+
+}
+
+/* =========================================================
+   CHAPTER 26.9.4.4
+   GLOBAL UI CONSISTENCY - TYPOGRAPHY & SPACING
+   ========================================================= */
+
+:root {
+    --th-section-space: 80px;
+    --th-card-space: 24px;
+    --th-text-muted: #a8a8a8;
+}
+
+
+/* =========================================================
+   GLOBAL TEXT
+   ========================================================= */
+
+body {
+    line-height: 1.6;
+}
+
+p {
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PAGE HEADINGS
+   ========================================================= */
+
+.products-page h1,
+.checkout-section h1,
+.checkout-success-section h1 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.products-page > .container > .mb-5,
+.checkout-section > .container > .mb-5 {
+    margin-bottom: 42px !important;
+}
+
+
+/* =========================================================
+   PRODUCT TYPOGRAPHY
+   ========================================================= */
+
+.product-card h5 {
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    color: var(--th-text-muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.product-card h4 {
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   FILTER TYPOGRAPHY
+   ========================================================= */
+
+.filter-title {
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   CHECKOUT TYPOGRAPHY
+   ========================================================= */
+
+.checkout-title {
+    font-size: 1.35rem;
+    line-height: 1.4;
+}
+
+.checkout-section .form-label {
+    line-height: 1.4;
+}
+
+.checkout-section .text-secondary {
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SUCCESS PAGE TYPOGRAPHY
+   ========================================================= */
+
+.checkout-success-card .success-title,
+.order-success-card .success-title {
+    line-height: 1.25;
+    letter-spacing: -0.4px;
+}
+
+.checkout-success-card .success-text,
+.order-success-card .success-text {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   COMMON SECTION SPACING
+   ========================================================= */
+
+.products-page,
+.checkout-section,
+.checkout-success-section {
+    padding-top: var(--th-section-space);
+    padding-bottom: var(--th-section-space);
+}
+
+
+/* =========================================================
+   CARD INTERNAL SPACING
+   ========================================================= */
+
+.checkout-card > * + * {
+    margin-top: 14px;
+}
+
+.filter-card > * + * {
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   MUTED TEXT
+   ========================================================= */
+
+.text-secondary {
+    color: var(--th-text-muted) !important;
+}
+
+
+/* =========================================================
+   MOBILE TYPOGRAPHY
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    :root {
+        --th-section-space: 55px;
+        --th-card-space: 20px;
+    }
+
+    .products-page > .container > .mb-5,
+    .checkout-section > .container > .mb-5 {
+        margin-bottom: 30px !important;
+    }
+
+    .products-page h1,
+    .checkout-section h1 {
+        font-size: 2rem;
+    }
+
+    .product-card h5 {
+        font-size: 1rem;
+    }
+
+    .product-card h4 {
+        font-size: 1.2rem;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    :root {
+        --th-section-space: 45px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .products-page h1,
+    .checkout-section h1 {
+        font-size: 1.75rem;
+    }
+
+    .checkout-title {
+        font-size: 1.2rem;
+    }
+
+}
+
+/* =========================================================
+   CHAPTER 26.9.4.5
+   MOBILE UI CONSISTENCY
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Prevent horizontal overflow */
+
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+
+    /* Product toolbar */
+
+    .product-toolbar {
+        width: 100%;
+    }
+
+    .product-toolbar .row > div {
+        width: 100%;
+    }
+
+
+    /* Product cards */
+
+    .product-card {
+        width: 100%;
+    }
+
+
+    /* Product action buttons */
+
+    .product-card .btn-techhub,
+    .product-card .btn-outline-techhub {
+        width: 100%;
+    }
+
+
+    /* Checkout */
+
+    .checkout-card {
+        width: 100%;
+    }
+
+
+    /* Checkout action area */
+
+    .checkout-actions {
+        width: 100%;
+    }
+
+    .checkout-actions .btn-techhub,
+    .checkout-actions .btn-outline-techhub {
+        width: 100%;
+    }
+
+
+    /* Success page */
+
+    .checkout-success-card,
+    .order-success-card {
+        width: 100%;
+    }
+
+
+    /* Tables */
+
+    .table-responsive {
+        border-radius: 12px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    /* Cart */
+
+    .cart-actions {
+        flex-wrap: wrap;
+    }
+
+
+    /* Images */
+
+    img {
+        max-width: 100%;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    /* Container spacing */
+
+    .container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+
+    /* Product page */
+
+    .products-page {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+
+    /* Product toolbar */
+
+    .product-toolbar .search-input,
+    .product-toolbar .sort-select {
+        width: 100%;
+    }
+
+
+    /* Product details */
+
+    .product-details-page {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+
+    /* Product action buttons */
+
+    .product-details-page .add-cart-btn,
+    .product-details-page .wishlist-btn {
+        width: 100%;
+    }
+
+
+    /* Cart quantity */
+
+    .quantity-box {
+        max-width: 100%;
+    }
+
+
+    /* Checkout */
+
+    .checkout-section {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+
+    /* Success */
+
+    .checkout-success-section {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+    .success-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .success-actions .btn-techhub,
+    .success-actions .btn-outline-techhub {
+        width: 100%;
+    }
+
+
+    /* Prevent long text from breaking layout */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        overflow-wrap: break-word;
+    }
+
+}

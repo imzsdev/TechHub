@@ -4,206 +4,255 @@
 
 <section class="products-page py-5">
 
-    <div class="container">
+```
+<div class="container">
 
-        <div class="mb-5">
+    {{-- Page Heading --}}
 
-            <h1 class="text-white fw-bold">
-                Shopping Cart
-            </h1>
+    <div class="mb-5">
 
-            <p class="text-secondary">
-                Review your selected products before checkout.
-            </p>
+        <h1 class="text-white fw-bold">
+            Shopping Cart
+        </h1>
 
+        <p class="text-secondary">
+            Review your selected products before checkout.
+        </p>
+
+    </div>
+
+
+    {{-- Success Message --}}
+
+    @if(session('success'))
+
+        <div class="alert alert-success">
+            {{ session('success') }}
         </div>
 
-        @if(session('success'))
+    @endif
 
-            <div class="alert alert-success">
 
-                {{ session('success') }}
+    {{-- Error Message --}}
 
-            </div>
+    @if(session('error'))
 
-        @endif
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
 
-        @if(count($cart))
+    @endif
 
-            @php
-                $grandTotal = 0;
-            @endphp
 
-            <div class="table-responsive">
+    @if(count($cart))
 
-                <table class="table table-dark align-middle">
 
-                    <thead>
+        @php
 
-                        <tr>
+            $grandTotal = 0;
 
-                            <th>Image</th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th width="220">Quantity</th>
-                            <th>Total</th>
-                            <th>Action</th>
+            $totalItems = 0;
 
-                        </tr>
+        @endphp
 
-                    </thead>
 
-                    <tbody>
+        <div class="row g-4">
+
+
+            {{-- ==========================================
+                 Cart Items
+            =========================================== --}}
+
+            <div class="col-lg-8">
+
+                <div class="card bg-dark border-secondary">
+
+                    <div class="card-body p-0">
 
                         @foreach($cart as $item)
 
                             @php
-                                $total = $item['price'] * $item['quantity'];
+
+                                $total =
+                                    $item['price'] *
+                                    $item['quantity'];
+
                                 $grandTotal += $total;
+
+                                $totalItems +=
+                                    $item['quantity'];
+
                             @endphp
 
-                            <tr>
 
-                                <td width="120">
+                            <div
+                                class="p-4 border-bottom border-secondary">
 
-                                    <img
-                                        src="{{ asset($item['image']) }}"
-                                        class="img-fluid rounded"
-                                        style="max-height:80px;object-fit:contain;">
 
-                                </td>
+                                <div
+                                    class="row align-items-center g-3">
 
-                                <td>
 
-                                    <strong>
+                                    {{-- Product Image --}}
 
-                                        {{ $item['name'] }}
+                                    <div class="col-4 col-md-2">
 
-                                    </strong>
+                                        <img
+                                            src="{{ asset($item['image']) }}"
+                                            class="img-fluid rounded"
+                                            alt="{{ $item['name'] }}"
+                                            style="
+                                                width: 100%;
+                                                height: 90px;
+                                                object-fit: contain;
+                                            ">
 
-                                </td>
+                                    </div>
 
-                                <td>
 
-                                    ৳ {{ number_format($item['price'],2) }}
+                                    {{-- Product Info --}}
 
-                                </td>
+                                    <div class="col-8 col-md-4">
 
-                                <td>
+                                        <h5
+                                            class="text-white mb-2">
 
-                                    <div class="d-flex align-items-center gap-2">
+                                            {{ $item['name'] }}
+
+                                        </h5>
+
+                                        <p
+                                            class="text-secondary mb-0">
+
+                                            ৳ {{ number_format(
+                                                $item['price'],
+                                                2
+                                            ) }}
+
+                                            / item
+
+                                        </p>
+
+                                    </div>
+
+
+                                    {{-- Quantity --}}
+
+                                    <div class="col-6 col-md-3">
+
+                                        <small
+                                            class="text-secondary d-block mb-2">
+
+                                            Quantity
+
+                                        </small>
+
+
+                                        <div
+                                            class="d-flex align-items-center gap-2">
+
+
+                                            <a
+                                                href="{{ route(
+                                                    'cart.decrease',
+                                                    $item['id']
+                                                ) }}"
+                                                class="btn btn-sm btn-outline-light">
+
+                                                −
+
+                                            </a>
+
+
+                                            <span
+                                                class="text-white fw-bold px-2">
+
+                                                {{ $item['quantity'] }}
+
+                                            </span>
+
+
+                                            <a
+                                                href="{{ route(
+                                                    'cart.increase',
+                                                    $item['id']
+                                                ) }}"
+                                                class="btn btn-sm btn-outline-light">
+
+                                                +
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    {{-- Subtotal --}}
+
+                                    <div
+                                        class="col-6 col-md-2 text-md-end">
+
+                                        <small
+                                            class="text-secondary d-block mb-2">
+
+                                            Subtotal
+
+                                        </small>
+
+                                        <strong
+                                            class="text-danger">
+
+                                            ৳ {{ number_format(
+                                                $total,
+                                                2
+                                            ) }}
+
+                                        </strong>
+
+                                    </div>
+
+
+                                    {{-- Remove --}}
+
+                                    <div
+                                        class="col-12 col-md-1 text-md-end">
 
                                         <a
-                                            href="{{ route('cart.decrease',$item['id']) }}"
-                                            class="btn btn-sm btn-outline-light">
+                                            href="{{ route(
+                                                'cart.remove',
+                                                $item['id']
+                                            ) }}"
+                                            class="btn btn-sm btn-outline-danger">
 
-                                            −
-
-                                        </a>
-
-                                        <span class="px-3">
-
-                                            {{ $item['quantity'] }}
-
-                                        </span>
-
-                                        <a
-                                            href="{{ route('cart.increase',$item['id']) }}"
-                                            class="btn btn-sm btn-outline-light">
-
-                                            +
+                                            🗑️
 
                                         </a>
 
                                     </div>
 
-                                </td>
 
-                                <td>
+                                </div>
 
-                                    ৳ {{ number_format($total,2) }}
-
-                                </td>
-
-                                <td>
-
-                                    <a
-                                        href="{{ route('cart.remove',$item['id']) }}"
-                                        class="btn btn-danger btn-sm">
-
-                                        Remove
-
-                                    </a>
-
-                                </td>
-
-                            </tr>
+                            </div>
 
                         @endforeach
 
-                    </tbody>
 
-                    <tfoot>
+                    </div>
 
-                        <tr>
+                </div>
 
-                            <th colspan="4" class="text-end">
 
-                                Grand Total
+                {{-- Continue Shopping --}}
 
-                            </th>
-
-                            <th class="text-danger">
-
-                                ৳ {{ number_format($grandTotal,2) }}
-
-                            </th>
-
-                            <th></th>
-
-                        </tr>
-
-                    </tfoot>
-
-                </table>
-
-            </div>
-
-            <div class="d-flex justify-content-end mt-4">
-
-                <a
-                    href="{{ route('checkout.index') }}"
-                    class="btn-techhub text-decoration-none">
-
-                    Proceed to Checkout
-
-                </a>
-
-            </div>
-
-        @else
-
-            <div class="card bg-dark border-secondary">
-
-                <div class="card-body text-center py-5">
-
-                    <h3 class="text-white">
-
-                        🛒 Your Cart is Empty
-
-                    </h3>
-
-                    <p class="text-secondary mt-3">
-
-                        Browse our products and add your favorite items.
-
-                    </p>
+                <div class="mt-4">
 
                     <a
                         href="{{ route('products') }}"
-                        class="btn-techhub text-decoration-none mt-3">
+                        class="btn btn-outline-light">
 
-                        Continue Shopping
+                        ← Continue Shopping
 
                     </a>
 
@@ -211,9 +260,232 @@
 
             </div>
 
-        @endif
 
-    </div>
+            {{-- ==========================================
+                 Cart Summary
+            =========================================== --}}
+
+            <div class="col-lg-4">
+
+                <div
+                    class="card bg-dark border-secondary">
+
+                    <div class="card-body p-4">
+
+                        <h4
+                            class="text-white fw-bold mb-4">
+
+                            Cart Summary
+
+                        </h4>
+
+
+                        {{-- Items --}}
+
+                        <div
+                            class="d-flex justify-content-between mb-3">
+
+                            <span
+                                class="text-secondary">
+
+                                Items
+
+                            </span>
+
+                            <span
+                                class="text-white">
+
+                                {{ $totalItems }}
+
+                            </span>
+
+                        </div>
+
+
+                        {{-- Subtotal --}}
+
+                        <div
+                            class="d-flex justify-content-between mb-3">
+
+                            <span
+                                class="text-secondary">
+
+                                Subtotal
+
+                            </span>
+
+                            <span
+                                class="text-white">
+
+                                ৳ {{ number_format(
+                                    $grandTotal,
+                                    2
+                                ) }}
+
+                            </span>
+
+                        </div>
+
+
+                        {{-- Shipping --}}
+
+                        <div
+                            class="d-flex justify-content-between mb-3">
+
+                            <span
+                                class="text-secondary">
+
+                                Shipping
+
+                            </span>
+
+                            <span
+                                class="text-success">
+
+                                Free
+
+                            </span>
+
+                        </div>
+
+
+                        <hr
+                            class="border-secondary">
+
+
+                        {{-- Grand Total --}}
+
+                        <div
+                            class="d-flex justify-content-between align-items-center mb-4">
+
+                            <span
+                                class="text-white fw-bold fs-5">
+
+                                Total
+
+                            </span>
+
+                            <span
+                                class="text-danger fw-bold fs-4">
+
+                                ৳ {{ number_format(
+                                    $grandTotal,
+                                    2
+                                ) }}
+
+                            </span>
+
+                        </div>
+
+
+                        {{-- Checkout --}}
+
+                        <a
+                            href="{{ route('checkout.index') }}"
+                            class="btn-techhub text-decoration-none text-center d-block w-100">
+
+                            Proceed to Checkout →
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+                {{-- Trust Info --}}
+
+                <div
+                    class="card bg-dark border-secondary mt-3">
+
+                    <div class="card-body">
+
+                        <div
+                            class="text-secondary small">
+
+                            <div class="mb-2">
+                                🚚 Delivery within 2–5 business days
+                            </div>
+
+                            <div class="mb-2">
+                                💳 Cash on Delivery Available
+                            </div>
+
+                            <div>
+                                🔒 Secure Checkout
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    @else
+
+
+        {{-- ==========================================
+             Empty Cart
+        =========================================== --}}
+
+        <div
+            class="card bg-dark border-secondary">
+
+            <div
+                class="card-body text-center py-5">
+
+
+                <div
+                    class="fs-1 mb-3">
+
+                    🛒
+
+                </div>
+
+
+                <h3
+                    class="text-white">
+
+                    Your Cart is Empty
+
+                </h3>
+
+
+                <p
+                    class="text-secondary mt-3">
+
+                    Your cart is waiting for some
+                    amazing tech products.
+
+                </p>
+
+
+                <a
+                    href="{{ route('products') }}"
+                    class="btn-techhub text-decoration-none mt-3">
+
+                    Start Shopping
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+    @endif
+
+
+</div>
+```
 
 </section>
 

@@ -4,212 +4,197 @@
 
 <section class="checkout-section py-5">
 
-    <div class="container">
+```
+<div class="container">
 
-        <div class="text-center mb-5">
 
-            <h1 class="section-title">
-                Checkout
-            </h1>
+    {{-- ==========================================
+         Header
+    =========================================== --}}
 
-            <p class="section-subtitle">
-                Complete your order securely.
-            </p>
+    <div class="text-center mb-5">
+
+        <span class="badge bg-danger px-3 py-2 mb-3">
+            Secure Checkout
+        </span>
+
+        <h1 class="section-title">
+            Checkout
+        </h1>
+
+        <p class="section-subtitle">
+            Complete your order securely and safely.
+        </p>
+
+    </div>
+
+
+    {{-- ==========================================
+         Validation Errors
+    =========================================== --}}
+
+    @if($errors->any())
+
+        <div class="alert alert-danger mb-4">
+
+            <strong>
+                Please check the following:
+            </strong>
+
+            <ul class="mb-0 mt-2">
+
+                @foreach($errors->all() as $error)
+
+                    <li>
+                        {{ $error }}
+                    </li>
+
+                @endforeach
+
+            </ul>
 
         </div>
 
-        <!-- ========================================= -->
-        <!-- CHECKOUT FORM -->
-        <!-- ========================================= -->
-
-        <form
-            action="{{ route('checkout.place') }}"
-            method="POST">
-
-            @csrf
-
-            <div class="row g-4">
-
-                <!-- ================================= -->
-                <!-- Customer Information -->
-                <!-- ================================= -->
-
-                <div class="col-lg-7">
-
-                    <div class="checkout-card">
-
-                        <h3 class="checkout-title">
-                            Shipping Information
-                        </h3>
-
-                        <div class="row g-3">
-
-                            <!-- Full Name -->
-
-                            <div class="col-md-6">
-
-                                <label class="form-label">
-                                    Full Name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    name="name"
-                                    class="form-control checkout-input"
-                                    placeholder="Enter your full name"
-                                    value="{{ old('name', auth()->user()->name ?? '') }}"
-                                    required>
-
-                            </div>
+    @endif
 
 
-                            <!-- Phone -->
+    {{-- ==========================================
+         Session Error
+    =========================================== --}}
 
-                            <div class="col-md-6">
+    @if(session('error'))
 
-                                <label class="form-label">
-                                    Phone Number
-                                </label>
+        <div class="alert alert-danger mb-4">
 
-                                <input
-                                    type="tel"
-                                    name="phone"
-                                    class="form-control checkout-input"
-                                    placeholder="01XXXXXXXXX"
-                                    value="{{ old('phone') }}"
-                                    required>
+            {{ session('error') }}
 
-                            </div>
+        </div>
+
+    @endif
 
 
-                            <!-- Email -->
+    {{-- ==========================================
+         Checkout Form
+    =========================================== --}}
 
-                            <div class="col-12">
+    <form
+        action="{{ route('checkout.place') }}"
+        method="POST">
 
-                                <label class="form-label">
-                                    Email Address
-                                </label>
-
-                                <input
-                                    type="email"
-                                    name="email"
-                                    class="form-control checkout-input"
-                                    placeholder="Enter your email"
-                                    value="{{ old('email', auth()->user()->email ?? '') }}"
-                                    required>
-
-                            </div>
+        @csrf
 
 
-                            <!-- Address -->
-
-                            <div class="col-12">
-
-                                <label class="form-label">
-                                    Delivery Address
-                                </label>
-
-                                <textarea
-                                    name="address"
-                                    class="form-control checkout-input"
-                                    rows="4"
-                                    placeholder="Enter your complete delivery address"
-                                    required>{{ old('address') }}</textarea>
-
-                            </div>
+        <div class="row g-4">
 
 
-                            <!-- City -->
+            {{-- ==================================
+                 LEFT SIDE
+            =================================== --}}
 
-                            <div class="col-md-6">
-
-                                <label class="form-label">
-                                    City
-                                </label>
-
-                                <input
-                                    type="text"
-                                    name="city"
-                                    class="form-control checkout-input"
-                                    placeholder="Dhaka"
-                                    value="{{ old('city') }}"
-                                    required>
-
-                            </div>
+            <div class="col-lg-7">
 
 
-                            <!-- Postal Code -->
+                {{-- ==================================
+                     Customer Information
+                =================================== --}}
 
-                            <div class="col-md-6">
+                <div class="checkout-card mb-4">
 
-                                <label class="form-label">
-                                    Postal Code
-                                </label>
+                    <div class="d-flex align-items-center mb-4">
 
-                                <input
-                                    type="text"
-                                    name="postal_code"
-                                    class="form-control checkout-input"
-                                    placeholder="1200"
-                                    value="{{ old('postal_code') }}"
-                                    required>
+                        <div class="me-3 fs-3">
+                            👤
+                        </div>
 
-                            </div>
+                        <div>
 
+                            <h3 class="checkout-title mb-1">
+                                Customer Information
+                            </h3>
 
-                            <!-- Payment Method -->
+                            <p class="text-secondary mb-0">
+                                Enter your contact information.
+                            </p>
 
-                            <div class="col-12">
+                        </div>
 
-                                <label class="form-label">
-                                    Payment Method
-                                </label>
-
-                                <select
-                                    name="payment_method"
-                                    class="form-select checkout-input"
-                                    required>
-
-                                    <option value="">
-                                        Select Payment Method
-                                    </option>
-
-                                    <option
-                                        value="cod"
-                                        {{ old('payment_method') === 'cod' ? 'selected' : '' }}>
-
-                                        Cash on Delivery
-
-                                    </option>
-
-                                    <option
-                                        value="sslcommerz"
-                                        {{ old('payment_method') === 'sslcommerz' ? 'selected' : '' }}>
-
-                                        SSLCommerz
-
-                                    </option>
-
-                                </select>
-
-                            </div>
+                    </div>
 
 
-                            <!-- Order Notes -->
+                    <div class="row g-3">
 
-                            <div class="col-12">
 
-                                <label class="form-label">
-                                    Order Notes
-                                </label>
+                        {{-- Full Name --}}
 
-                                <textarea
-                                    name="notes"
-                                    class="form-control checkout-input"
-                                    rows="3"
-                                    placeholder="Optional notes about your order">{{ old('notes') }}</textarea>
+                        <div class="col-md-6">
 
-                            </div>
+                            <label
+                                class="form-label">
+
+                                Full Name
+                                <span class="text-danger">*</span>
+
+                            </label>
+
+                            <input
+                                type="text"
+                                name="name"
+                                class="form-control checkout-input"
+                                placeholder="Enter your full name"
+                                value="{{ old(
+                                    'name',
+                                    auth()->user()->name ?? ''
+                                ) }}"
+                                required>
+
+                        </div>
+
+
+                        {{-- Phone --}}
+
+                        <div class="col-md-6">
+
+                            <label
+                                class="form-label">
+
+                                Phone Number
+                                <span class="text-danger">*</span>
+
+                            </label>
+
+                            <input
+                                type="tel"
+                                name="phone"
+                                class="form-control checkout-input"
+                                placeholder="01XXXXXXXXX"
+                                value="{{ old('phone') }}"
+                                required>
+
+                        </div>
+
+
+                        {{-- Email --}}
+
+                        <div class="col-12">
+
+                            <label
+                                class="form-label">
+
+                                Email Address
+                                <span class="text-danger">*</span>
+
+                            </label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control checkout-input"
+                                placeholder="Enter your email"
+                                value="{{ old(
+                                    'email',
+                                    auth()->user()->email ?? ''
+                                ) }}"
+                                required>
 
                         </div>
 
@@ -218,144 +203,510 @@
                 </div>
 
 
-                <!-- ================================= -->
-                <!-- Order Summary -->
-                <!-- ================================= -->
+                {{-- ==================================
+                     Delivery Information
+                =================================== --}}
 
-                <div class="col-lg-5">
+                <div class="checkout-card mb-4">
 
-                    <div class="checkout-card">
+                    <div class="d-flex align-items-center mb-4">
 
-                        <h3 class="checkout-title">
+                        <div class="me-3 fs-3">
+                            📦
+                        </div>
+
+                        <div>
+
+                            <h3 class="checkout-title mb-1">
+                                Delivery Information
+                            </h3>
+
+                            <p class="text-secondary mb-0">
+                                Where should we deliver your order?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row g-3">
+
+
+                        {{-- Address --}}
+
+                        <div class="col-12">
+
+                            <label
+                                class="form-label">
+
+                                Delivery Address
+                                <span class="text-danger">*</span>
+
+                            </label>
+
+                            <textarea
+                                name="address"
+                                class="form-control checkout-input"
+                                rows="4"
+                                placeholder="House / Road / Area / Complete delivery address"
+                                required>{{ old('address') }}</textarea>
+
+                        </div>
+
+
+                        {{-- City --}}
+
+                        <div class="col-md-6">
+
+                            <label
+                                class="form-label">
+
+                                City
+                                <span class="text-danger">*</span>
+
+                            </label>
+
+                            <input
+                                type="text"
+                                name="city"
+                                class="form-control checkout-input"
+                                placeholder="Dhaka"
+                                value="{{ old('city') }}"
+                                required>
+
+                        </div>
+
+
+                        {{-- Postal Code --}}
+
+                        <div class="col-md-6">
+
+                            <label
+                                class="form-label">
+
+                                Postal Code
+
+                            </label>
+
+                            <input
+                                type="text"
+                                name="postal_code"
+                                class="form-control checkout-input"
+                                placeholder="1200"
+                                value="{{ old('postal_code') }}">
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                {{-- ==================================
+                     Payment
+                =================================== --}}
+
+                <div class="checkout-card mb-4">
+
+                    <div class="d-flex align-items-center mb-4">
+
+                        <div class="me-3 fs-3">
+                            💳
+                        </div>
+
+                        <div>
+
+                            <h3 class="checkout-title mb-1">
+                                Payment Method
+                            </h3>
+
+                            <p class="text-secondary mb-0">
+                                Choose how you want to pay.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row g-3">
+
+
+                        {{-- Cash On Delivery --}}
+
+                        <div class="col-md-6">
+
+                            <label
+                                class="payment-option w-100">
+
+                                <input
+                                    type="radio"
+                                    name="payment_method"
+                                    value="cod"
+                                    {{ old('payment_method') === 'cod'
+                                        ? 'checked'
+                                        : '' }}
+                                    required>
+
+                                <div class="payment-option-content">
+
+                                    <div class="fs-3 mb-2">
+                                        💵
+                                    </div>
+
+                                    <strong class="text-white d-block">
+                                        Cash on Delivery
+                                    </strong>
+
+                                    <small class="text-secondary">
+                                        Pay when your order arrives.
+                                    </small>
+
+                                </div>
+
+                            </label>
+
+                        </div>
+
+
+                        {{-- SSLCommerz --}}
+
+                        <div class="col-md-6">
+
+                            <label
+                                class="payment-option w-100">
+
+                                <input
+                                    type="radio"
+                                    name="payment_method"
+                                    value="sslcommerz"
+                                    {{ old('payment_method') === 'sslcommerz'
+                                        ? 'checked'
+                                        : '' }}>
+
+                                <div class="payment-option-content">
+
+                                    <div class="fs-3 mb-2">
+                                        💳
+                                    </div>
+
+                                    <strong class="text-white d-block">
+                                        SSLCommerz
+                                    </strong>
+
+                                    <small class="text-secondary">
+                                        Secure online payment.
+                                    </small>
+
+                                </div>
+
+                            </label>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                {{-- ==================================
+                     Order Notes
+                =================================== --}}
+
+                <div class="checkout-card">
+
+                    <h3 class="checkout-title mb-3">
+                        📝 Order Notes
+                    </h3>
+
+                    <textarea
+                        name="notes"
+                        class="form-control checkout-input"
+                        rows="4"
+                        placeholder="Optional notes about your order">{{ old('notes') }}</textarea>
+
+                    <small class="text-secondary d-block mt-2">
+                        Example: Delivery instructions, landmark, etc.
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+            {{-- ==================================
+                 RIGHT SIDE
+            =================================== --}}
+
+            <div class="col-lg-5">
+
+
+                {{-- ==================================
+                     Order Summary
+                =================================== --}}
+
+                <div class="checkout-card">
+
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+
+                        <h3 class="checkout-title mb-0">
                             Order Summary
                         </h3>
 
+                        <span class="badge bg-danger">
+                            {{ count($cart) }}
+                            {{ count($cart) === 1 ? 'Item' : 'Items' }}
+                        </span>
 
-                        @php
-
-                            $subtotal = 0;
-
-                            foreach ($cart as $item) {
-
-                                $subtotal +=
-                                    $item['price'] * $item['quantity'];
-
-                            }
-
-                            $shipping = 0;
-
-                            $total = $subtotal + $shipping;
-
-                        @endphp
+                    </div>
 
 
-                        <!-- Cart Products -->
+                    @php
 
-                        <div class="checkout-products">
+                        $subtotal = 0;
+                        $totalItems = 0;
 
-                            @foreach($cart as $item)
+                        foreach ($cart as $item) {
 
-                                <div class="checkout-product">
+                            $subtotal +=
+                                $item['price'] *
+                                $item['quantity'];
 
-                                    <div class="checkout-product-info">
+                            $totalItems +=
+                                $item['quantity'];
+
+                        }
+
+                        $shipping = 0;
+
+                        $total =
+                            $subtotal +
+                            $shipping;
+
+                    @endphp
+
+
+                    {{-- Cart Products --}}
+
+                    <div class="checkout-products mb-4">
+
+
+                        @foreach($cart as $item)
+
+                            @php
+
+                                $itemTotal =
+                                    $item['price'] *
+                                    $item['quantity'];
+
+                            @endphp
+
+
+                            <div
+                                class="checkout-product">
+
+
+                                <div
+                                    class="d-flex align-items-center gap-3">
+
+
+                                    {{-- Image --}}
+
+                                    <img
+                                        src="{{ asset($item['image']) }}"
+                                        alt="{{ $item['name'] }}"
+                                        style="
+                                            width: 60px;
+                                            height: 60px;
+                                            object-fit: contain;
+                                            border-radius: 8px;
+                                        ">
+
+
+                                    <div
+                                        class="checkout-product-info">
 
                                         <strong>
                                             {{ $item['name'] }}
                                         </strong>
 
                                         <span>
-                                            Qty: {{ $item['quantity'] }}
+                                            Qty:
+                                            {{ $item['quantity'] }}
                                         </span>
 
                                     </div>
 
-                                    <strong>
-                                        ৳ {{ number_format(
-                                            $item['price'] * $item['quantity'],
-                                            2
-                                        ) }}
-                                    </strong>
-
                                 </div>
 
-                            @endforeach
+
+                                <strong>
+
+                                    ৳ {{ number_format(
+                                        $itemTotal,
+                                        2
+                                    ) }}
+
+                                </strong>
+
+
+                            </div>
+
+                        @endforeach
+
+
+                    </div>
+
+
+                    {{-- ==================================
+                         Price Summary
+                    =================================== --}}
+
+                    <div class="checkout-summary">
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Items
+                            </span>
+
+                            <strong>
+                                {{ $totalItems }}
+                            </strong>
 
                         </div>
 
 
-                        <!-- Price Summary -->
+                        <div class="summary-row">
 
-                        <div class="checkout-summary">
+                            <span>
+                                Subtotal
+                            </span>
 
-                            <div class="summary-row">
-
-                                <span>
-                                    Subtotal
-                                </span>
-
-                                <strong>
-                                    ৳ {{ number_format($subtotal, 2) }}
-                                </strong>
-
-                            </div>
-
-
-                            <div class="summary-row">
-
-                                <span>
-                                    Shipping
-                                </span>
-
-                                <strong>
-                                    Free
-                                </strong>
-
-                            </div>
-
-
-                            <hr>
-
-
-                            <div class="summary-total">
-
-                                <span>
-                                    Total
-                                </span>
-
-                                <strong>
-                                    ৳ {{ number_format($total, 2) }}
-                                </strong>
-
-                            </div>
+                            <strong>
+                                ৳ {{ number_format(
+                                    $subtotal,
+                                    2
+                                ) }}
+                            </strong>
 
                         </div>
 
 
-                        <!-- ================================= -->
-                        <!-- Place Order -->
-                        <!-- ================================= -->
+                        <div class="summary-row">
 
-                        <div class="mt-4">
+                            <span>
+                                Shipping
+                            </span>
 
-                            <button
-                                type="submit"
-                                class="btn-techhub w-100">
+                            <strong class="text-success">
+                                Free
+                            </strong>
 
-                                Place Order
+                        </div>
 
-                            </button>
+
+                        <hr>
+
+
+                        <div class="summary-total">
+
+                            <span>
+                                Total
+                            </span>
+
+                            <strong>
+                                ৳ {{ number_format(
+                                    $total,
+                                    2
+                                ) }}
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    {{-- ==================================
+                         Secure Checkout
+                    =================================== --}}
+
+                    <div
+                        class="mt-4 p-3 rounded border border-secondary">
+
+                        <div
+                            class="d-flex align-items-start gap-3">
+
+                            <span class="fs-4">
+                                🔒
+                            </span>
+
+                            <div>
+
+                                <strong class="text-white d-block">
+                                    Secure Checkout
+                                </strong>
+
+                                <small class="text-secondary">
+                                    Your information is protected
+                                    and handled securely.
+                                </small>
+
+                            </div>
 
                         </div>
 
                     </div>
 
+
+                    {{-- ==================================
+                         Buttons
+                    =================================== --}}
+
+                    <div class="mt-4">
+
+
+                        <button
+                            type="submit"
+                            class="btn-techhub w-100">
+
+                            ✓ Place Order
+
+                        </button>
+
+
+                        <a
+                            href="{{ route('cart.index') }}"
+                            class="btn btn-outline-light w-100 mt-3">
+
+                            ← Back to Cart
+
+                        </a>
+
+
+                    </div>
+
+
                 </div>
+
 
             </div>
 
-        </form>
 
-    </div>
+        </div>
+
+
+    </form>
+
+</div>
+```
 
 </section>
 

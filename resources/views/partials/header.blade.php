@@ -135,29 +135,73 @@
 
             @auth
 
-                <span class="text-white me-3">
-
-                    👋 {{ Auth::user()->name }}
-
-                </span>
-
-
-                <form
-                    action="{{ route('logout') }}"
-                    method="POST"
-                    class="d-inline">
-
-                    @csrf
+                <div class="dropdown me-2">
 
                     <button
-                        type="submit"
-                        class="btn btn-danger">
+                        class="btn btn-outline-light dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
 
-                        Logout
+                        👋 {{ Auth::user()->name }}
 
                     </button>
 
-                </form>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+
+                        <li>
+                            <span class="dropdown-item-text text-secondary">
+                                {{ Auth::user()->email }}
+                            </span>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <span class="dropdown-item">
+                                👤 My Account
+                            </span>
+                        </li>
+
+                        <li>
+                           <a
+                                href="{{ route('wishlist.index') }}"
+                                class="dropdown-item">
+
+                                ❤️ Wishlist
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+
+                            <form
+                                action="{{ route('logout') }}"
+                                method="POST">
+
+                                @csrf
+
+                                <button
+                                    type="submit"
+                                    class="dropdown-item text-danger">
+
+                                    🚪 Logout
+
+                                </button>
+
+                            </form>
+
+                        </li>
+
+                    </ul>
+
+                </div>
 
             @endauth
 
