@@ -160,9 +160,13 @@
                         </li>
 
                         <li>
-                            <span class="dropdown-item">
+                            <a
+                                href="{{ route('account') }}"
+                                class="dropdown-item">
+
                                 👤 My Account
-                            </span>
+
+                            </a>
                         </li>
 
                         <li>
