@@ -140,3 +140,16 @@ Route::post('/logout', [AuthController::class, 'logout'])
 Route::get('/account', [AccountController::class, 'index'])
     ->middleware('auth')
     ->name('account');
+
+
+    /*
+|--------------------------------------------------------------------------
+| Admin
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/admin', function () {
+    return 'Admin access granted.';
+})
+    ->middleware('admin')
+    ->name('admin.dashboard');
