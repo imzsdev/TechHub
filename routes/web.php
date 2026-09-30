@@ -9,6 +9,9 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,7 @@ use App\Http\Controllers\AccountController;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
+
 /*
 |--------------------------------------------------------------------------
 | About
@@ -27,6 +31,7 @@ Route::get('/', [HomeController::class, 'index'])
 
 Route::view('/about', 'about')
     ->name('about');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +44,7 @@ Route::get('/products', [ProductController::class, 'index'])
 
 Route::get('/products/{slug}', [ProductController::class, 'show'])
     ->name('products.show');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +67,7 @@ Route::get('/cart/decrease/{id}', [CartController::class, 'decrease'])
 Route::get('/cart/remove/{id}', [CartController::class, 'remove'])
     ->name('cart.remove');
 
+
 /*
 |--------------------------------------------------------------------------
 | Checkout
@@ -78,6 +85,7 @@ Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])
 Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])
     ->middleware('auth')
     ->name('checkout.success');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +105,7 @@ Route::middleware('auth')->group(function () {
         ->name('wishlist.destroy');
 });
 
+
 /*
 |--------------------------------------------------------------------------
 | Contact
@@ -105,6 +114,7 @@ Route::middleware('auth')->group(function () {
 
 Route::view('/contact', 'contact')
     ->name('contact');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -142,14 +152,33 @@ Route::get('/account', [AccountController::class, 'index'])
     ->name('account');
 
 
-    /*
+/*
 |--------------------------------------------------------------------------
 | Admin
 |--------------------------------------------------------------------------
 */
 
-Route::get('/admin', function () {
-    return 'Admin access granted.';
-})
-    ->middleware('admin')
-    ->name('admin.dashboard');
+Route::middleware('admin')
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        /*
+        |--------------------------------------------------------------------------
+        | Admin Dashboard
+        |--------------------------------------------------------------------------
+        */
+
+        Route::get('/', [DashboardController::class, 'index'])
+            ->name('dashboard');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Admin Product Management
+        |--------------------------------------------------------------------------
+        */
+
+        Route::resource('products', AdminProductController::class)
+            ->except(['show']);
+    });
